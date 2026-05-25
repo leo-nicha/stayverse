@@ -1,12 +1,12 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { AdminShell } from '../../AdminShell';
 import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from '@/context/LanguageContext';
 
-export default function SetStationEditPage() {
+function SetStationEditContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const id = searchParams.get('id') || searchParams.get('ids');
@@ -301,5 +301,17 @@ export default function SetStationEditPage() {
         </div>
       </div>
     </AdminShell>
+  );
+}
+
+export default function SetStationEditPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex items-center justify-center min-h-screen bg-[#f4f7f9] text-gray-800">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#CF7536]"></div>
+      </div>
+    }>
+      <SetStationEditContent />
+    </Suspense>
   );
 }
