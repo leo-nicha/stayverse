@@ -71,7 +71,7 @@ export default function PostListPage() {
       case 'reject': return 'REJECT';
       case 'soldRent': return 'SOLD/RENT';
       case 'expire': return 'EXPIRE';
-      default: return status.toUpperCase();
+      default: return (status as string).toUpperCase();
     }
   };
 
