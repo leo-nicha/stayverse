@@ -142,12 +142,12 @@ const loginTranslations: Record<Language, Record<string, string>> = {
 };
 
 const languageFlags: Record<Language, string> = {
-  th: '🇹🇭',
-  en: '🇺🇸',
-  ru: '🇷🇺',
-  zh: '🇨🇳',
-  ja: '🇯🇵',
-  ko: '🇰🇷'
+  th: 'https://flagcdn.com/w40/th.png',
+  en: 'https://flagcdn.com/w40/us.png',
+  ru: 'https://flagcdn.com/w40/ru.png',
+  zh: 'https://flagcdn.com/w40/cn.png',
+  ja: 'https://flagcdn.com/w40/jp.png',
+  ko: 'https://flagcdn.com/w40/kr.png'
 };
 
 const languageNames: Record<Language, string> = {
@@ -219,7 +219,7 @@ export default function LoginPage() {
             className="flex items-center space-x-2 px-3.5 py-1.5 bg-white/80 backdrop-blur-md hover:bg-gray-100 rounded-full border border-gray-200 text-xs text-gray-800 shadow-lg transition-all cursor-pointer"
             id="login-lang-button"
           >
-            <span>{languageFlags[language]}</span>
+            <img src={languageFlags[language]} alt={language} className="w-4 h-3 object-cover rounded-sm" />
             <span className="font-semibold uppercase">{language}</span>
             <Globe className="w-3.5 h-3.5 text-[#CF7536]" />
           </button>
@@ -246,7 +246,7 @@ export default function LoginPage() {
                       }}
                       className={`w-full text-left px-4 py-2.5 text-xs flex items-center space-x-2.5 hover:bg-[#CF7536]/10 hover:text-gray-900 transition-all duration-200 cursor-pointer ${language === lang ? 'bg-[#CF7536]/10 text-[#CF7536] font-bold' : 'text-gray-700'}`}
                     >
-                      <span>{languageFlags[lang]}</span>
+                      <img src={languageFlags[lang]} alt={lang} className="w-4 h-3 object-cover rounded-sm" />
                       <span>{languageNames[lang]}</span>
                     </button>
                   ))}
@@ -275,14 +275,14 @@ export default function LoginPage() {
 
           {/* Top Logo and Back to home */}
           <div className="relative z-10 flex justify-between items-center select-none">
-            <a href="/" className="flex items-center space-x-2 group">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#CF7536] to-[#A15A28] flex items-center justify-center text-white font-extrabold text-xs shadow-md transition-all group-hover:scale-105">
-                SV
-              </div>
-              <span className="font-extrabold text-base tracking-tight text-gray-800">
-                STAY<span className="text-[#CF7536]">VERSE</span>
-              </span>
-            </a>
+          {/* Logo */}
+          <a href="#" className="flex items-center">
+            <img
+              src="https://res.cloudinary.com/dvv3wvgnt/image/upload/v1779681125/svlogo_tzfhad.webp"
+              alt="STAYVERSE Logo"
+              className="h-12 w-auto object-contain"
+            />
+          </a>
             
             <a 
               href="/" 

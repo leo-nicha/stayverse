@@ -368,13 +368,19 @@ export const adminTranslations = {
   }
 };
 
+const enAdminTranslations = adminTranslations.en;
+(adminTranslations as any).ru = enAdminTranslations;
+(adminTranslations as any).zh = enAdminTranslations;
+(adminTranslations as any).ja = enAdminTranslations;
+(adminTranslations as any).ko = enAdminTranslations;
+
 export const languageFlags: Record<Language, string> = {
-  th: '🇹🇭',
-  en: '🇺🇸',
-  ru: '🇷🇺',
-  zh: '🇨🇳',
-  ja: '🇯🇵',
-  ko: '🇰🇷'
+  th: 'https://flagcdn.com/w40/th.png',
+  en: 'https://flagcdn.com/w40/us.png',
+  ru: 'https://flagcdn.com/w40/ru.png',
+  zh: 'https://flagcdn.com/w40/cn.png',
+  ja: 'https://flagcdn.com/w40/jp.png',
+  ko: 'https://flagcdn.com/w40/kr.png'
 };
 
 export const languageNames: Record<Language, string> = {
@@ -697,7 +703,7 @@ export const AdminShell: React.FC<AdminShellProps> = ({
               onClick={() => setLangDropdownOpen(!langDropdownOpen)}
               className="flex items-center space-x-1.5 px-2.5 py-1.5 border border-gray-200 bg-white hover:bg-gray-50 text-xs font-semibold text-gray-700 rounded-lg shadow-sm transition-all duration-200 cursor-pointer"
             >
-              <span>{languageFlags[language]}</span>
+              <img src={languageFlags[language]} alt={language} className="w-4 h-3 object-cover rounded-sm" />
               <span className="uppercase text-gray-600">{language}</span>
               <ChevronDown className="w-3.5 h-3.5 text-gray-400" />
             </button>
@@ -721,7 +727,7 @@ export const AdminShell: React.FC<AdminShellProps> = ({
                         language === lang ? 'bg-[#CF7536]/10 text-[#CF7536] font-bold' : 'text-gray-600'
                       }`}
                     >
-                      <span>{languageFlags[lang]}</span>
+                      <img src={languageFlags[lang]} alt={lang} className="w-4 h-3 object-cover rounded-sm" />
                       <span>{languageNames[lang]}</span>
                     </button>
                   ))}

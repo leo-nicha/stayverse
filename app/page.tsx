@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { locationData } from '@/utils/mockLocationData';
 import { mockProperties } from '@/utils/mockProperties';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Luxury Promotion Slides
 const bannerSlides = [
@@ -85,12 +86,12 @@ const bannerSlides = [
 ];
 
 const languageFlags: Record<Language, string> = {
-  th: '🇹🇭',
-  en: '🇺🇸',
-  ru: '🇷🇺',
-  zh: '🇨🇳',
-  ja: '🇯🇵',
-  ko: '🇰🇷'
+  th: 'https://flagcdn.com/w40/th.png',
+  en: 'https://flagcdn.com/w40/us.png',
+  ru: 'https://flagcdn.com/w40/ru.png',
+  zh: 'https://flagcdn.com/w40/cn.png',
+  ja: 'https://flagcdn.com/w40/jp.png',
+  ko: 'https://flagcdn.com/w40/kr.png'
 };
 
 const languageNames: Record<Language, string> = {
@@ -102,6 +103,14 @@ const languageNames: Record<Language, string> = {
   ko: '한국어'
 };
 
+const topHeaderTranslations: Record<Language, Record<string, string>> = {
+  th: { search: 'ค้นหา...', listProp: 'ลงประกาศ', sub: 'สมัครสมาชิก', myHome: 'หน้าหลัก', login: 'เข้าสู่ระบบ' },
+  en: { search: 'Search...', listProp: 'List Property', sub: 'Subscription', myHome: 'My Home', login: 'Log in' },
+  ru: { search: 'Поиск...', listProp: 'Добавить объект', sub: 'Подписка', myHome: 'Мой профиль', login: 'Войти' },
+  zh: { search: '搜索...', listProp: '发布房源', sub: '订阅服务', myHome: '我的主页', login: '登录' },
+  ja: { search: '検索...', listProp: '物件を掲載', sub: 'サブスクリプション', myHome: 'マイホーム', login: 'ログイン' },
+  ko: { search: '검색...', listProp: '매물 등록', sub: '구독', myHome: '마이 홈', login: '로그인' }
+};
 const transitData: Record<string, string[]> = {
   "BTS สายสีเขียวอ่อน (สายสุขุมวิท) | Light Green Line": [
     "คูคต (Khu Khot)", "แยก คปอ. (Yaek Kor Por Aor)", "พิพิธภัณฑ์กองทัพอากาศ (Royal Thai Air Force Museum)",
@@ -753,13 +762,88 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-grayPalette-50 text-grayPalette-500 font-sans">
-      
+      <div className="sticky top-0 z-50 w-full flex flex-col shadow-sm">
+        
+        {/* 1. TOP HEADER NAVIGATION */}
+        <div className="bg-white border-b border-gray-200 py-2 hidden md:block relative">
+        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-xs">
+          <div className="flex items-center space-x-6">
+            <a href="#" className="flex items-center">
+              <img
+                src="https://res.cloudinary.com/dvv3wvgnt/image/upload/v1779681125/svlogo_tzfhad.webp"
+                alt="STAYVERSE Logo"
+                className="h-12 w-auto object-contain"
+              />
+            </a>
+            <div className="relative">
+              <input 
+                type="text" 
+                placeholder={topHeaderTranslations[language].search} 
+                className="pl-9 pr-4 py-1.5 bg-gray-100 rounded-full border border-transparent focus:border-orangePalette-200 focus:bg-white outline-none w-64 text-gray-800 transition-all shadow-inner" 
+              />
+              <Search className="w-3.5 h-3.5 absolute left-3.5 top-2 text-gray-500" />
+            </div>
+          </div>
+          
+          <div className="flex items-center space-x-4 font-semibold text-gray-600">
+            <a href="/packages" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].listProp}</a>
+            <a href="/subscription" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].sub}</a>
+            <a href="/admin" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].myHome}</a>
+            <div className="h-3 w-[1px] bg-gray-300"></div>
+            <a href="/login" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].login}</a>
+            <div className="h-3 w-[1px] bg-gray-300"></div>
+            
+            {/* Language Switcher */}
+            <div className="relative">
+              <button
+                onClick={() => setLangMenuOpen(!langMenuOpen)}
+                className="flex items-center space-x-1.5 px-2 py-1 hover:bg-gray-100 rounded-md transition-all cursor-pointer"
+              >
+                <img src={languageFlags[language]} alt={language} className="w-4 h-3 object-cover rounded-sm" />
+                <span className="uppercase">{language}</span>
+                <ChevronDown className="w-3 h-3 text-gray-400" />
+              </button>
+
+              <AnimatePresence>
+                {langMenuOpen && (
+                  <>
+                    <div 
+                      className="fixed inset-0 z-40" 
+                      onClick={() => setLangMenuOpen(false)}
+                    ></div>
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-hidden text-gray-800 font-medium"
+                    >
+                      {(Object.keys(languageFlags) as Language[]).map((lang) => (
+                        <button
+                          key={lang}
+                          onClick={() => {
+                            setLanguage(lang);
+                            setLangMenuOpen(false);
+                          }}
+                          className={`w-full text-left px-4 py-2.5 text-xs flex items-center space-x-2.5 hover:bg-orangePalette-100/50 hover:text-gray-900 transition-all duration-200 cursor-pointer ${language === lang ? 'bg-orangePalette-100/50 text-orangePalette-200 font-bold' : 'text-gray-700'}`}
+                        >
+                          <img src={languageFlags[lang]} alt={lang} className="w-4 h-3 object-cover rounded-sm" />
+                          <span>{languageNames[lang]}</span>
+                        </button>
+                      ))}
+                    </motion.div>
+                  </>
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* 2. MAIN HEADER NAVIGATION (Transparent Glass) */}
-      <header className="sticky top-0 z-40 bg-[#f4f1eb] backdrop-blur-md border-b border-white/5 transition-all py-4">
+      <header className="bg-[#f4f1eb] backdrop-blur-md border-b border-white/5 transition-all py-4">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
-          <a href="#" className="flex items-center">
+          <a href="#" className="flex md:hidden items-center">
             <img
               src="https://res.cloudinary.com/dvv3wvgnt/image/upload/v1779681125/svlogo_tzfhad.webp"
               alt="STAYVERSE Logo"
@@ -799,7 +883,9 @@ export default function HomePage() {
             >
               <Menu className="w-5 h-5 text-orangePalette-200" />
             </button>
-            <a href="/login" className="text-[#306473] hover:text-orangePalette-200 font-bold text-xs uppercase transition-all-custom px-3 py-2 border border-[#306473]/25 hover:border-orangePalette-200 rounded-full">
+
+            {/* Login is only visible on mobile main header since it's in top bar for tablet/desktop */}
+            <a href="/login" className="md:hidden text-[#306473] hover:text-orangePalette-200 font-bold text-xs uppercase transition-all-custom px-3 py-2 border border-[#306473]/25 hover:border-orangePalette-200 rounded-full">
               {language === 'th' ? 'เข้าสู่ระบบ' : 'Login'}
             </a>
             <a href="#contact" className="bg-white hover:bg-orangePalette-100 text-bluePalette-600 px-4 py-2 rounded-full text-xs font-bold uppercase transition-all-custom">
@@ -888,6 +974,8 @@ export default function HomePage() {
           </div>
         )}
       </header>
+      </div>
+
 
       {/* 3. HERO SLIDER BANNER */}
       <section className="relative h-[480px] md:h-[620px] overflow-hidden bg-grayPalette-600 group">

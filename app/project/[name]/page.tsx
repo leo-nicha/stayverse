@@ -10,12 +10,12 @@ import {
 } from 'lucide-react';
 
 const languageFlags: Record<Language, string> = {
-  th: '🇹🇭',
-  en: '🇺🇸',
-  ru: '🇷🇺',
-  zh: '🇨🇳',
-  ja: '🇯🇵',
-  ko: '🇰🇷'
+  th: 'https://flagcdn.com/w40/th.png',
+  en: 'https://flagcdn.com/w40/us.png',
+  ru: 'https://flagcdn.com/w40/ru.png',
+  zh: 'https://flagcdn.com/w40/cn.png',
+  ja: 'https://flagcdn.com/w40/jp.png',
+  ko: 'https://flagcdn.com/w40/kr.png'
 };
 
 const languageNames: Record<Language, string> = {
@@ -424,8 +424,8 @@ export default function ProjectDetailPage() {
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
                 className="flex items-center space-x-2 px-3 py-1 bg-white/5 hover:bg-white/10 rounded-md border border-white/10 text-xs transition-all cursor-pointer"
               >
-                <span>{languageFlags[language]}</span>
-                <span className="font-medium uppercase">{language}</span>
+                <img src={languageFlags[language]} alt={language} className="w-4 h-3 object-cover rounded-sm" />
+                <span className="font-semibold uppercase">{language}</span>
                 <ChevronDown className="w-3.5 h-3.5 text-orangePalette-200" />
               </button>
 
@@ -440,7 +440,7 @@ export default function ProjectDetailPage() {
                       }}
                       className={`w-full text-left px-3 py-2 text-xs flex items-center space-x-2 hover:bg-orangePalette-200/20 hover:text-white transition-all ${language === lang ? 'bg-orangePalette-200/10 text-orangePalette-200 font-semibold' : 'text-grayPalette-100'}`}
                     >
-                      <span>{languageFlags[lang]}</span>
+                      <img src={languageFlags[lang]} alt={lang} className="w-4 h-3 object-cover rounded-sm" />
                       <span>{languageNames[lang]}</span>
                     </button>
                   ))}
