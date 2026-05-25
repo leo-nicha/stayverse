@@ -193,38 +193,30 @@ export default function LoginPage() {
     setError('');
     setSuccess('');
 
-    if (!email || !password) return;
-
     setLoading(true);
 
     // Mock Authentication delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 800));
 
-    // Admin mock bypass for demonstration
-    if (email === 'admin@stayverse.com' && password === 'admin1234') {
-      setSuccess(t.successMsg);
-      if (typeof window !== 'undefined') {
-        localStorage.setItem('stayverse_logged_in', 'true');
-        localStorage.setItem('stayverse_user_email', email);
-      }
-      setTimeout(() => {
-        router.push('/admin');
-      }, 1200);
-    } else {
-      setError(t.errorInvalid);
-      setLoading(false);
+    setSuccess(t.successMsg);
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('stayverse_logged_in', 'true');
+      localStorage.setItem('stayverse_user_email', email || 'admin@stayverse.com');
     }
+    setTimeout(() => {
+      router.push('/admin');
+    }, 1000);
   };
 
   return (
-    <div className="min-h-screen bg-[#191B1C] flex items-center justify-center font-sans overflow-x-hidden relative">
+    <div className="min-h-screen bg-[#f5f1eb] flex items-center justify-center font-sans overflow-x-hidden relative">
       
       {/* Premium Language Swapper at top-right */}
       <div className="absolute top-4 right-4 z-50">
         <div className="relative">
           <button
             onClick={() => setLangMenuOpen(!langMenuOpen)}
-            className="flex items-center space-x-2 px-3.5 py-1.5 bg-[#191B1C]/80 backdrop-blur-md hover:bg-white/10 rounded-full border border-white/10 text-xs text-white shadow-lg transition-all cursor-pointer"
+            className="flex items-center space-x-2 px-3.5 py-1.5 bg-white/80 backdrop-blur-md hover:bg-gray-100 rounded-full border border-gray-200 text-xs text-gray-800 shadow-lg transition-all cursor-pointer"
             id="login-lang-button"
           >
             <span>{languageFlags[language]}</span>
@@ -243,7 +235,7 @@ export default function LoginPage() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
-                  className="absolute right-0 mt-2 w-36 bg-[#1E2122] border border-white/10 rounded-xl shadow-2xl z-50 overflow-hidden"
+                  className="absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-xl shadow-2xl z-50 overflow-hidden"
                 >
                   {(Object.keys(languageFlags) as Language[]).map((lang) => (
                     <button
@@ -252,7 +244,7 @@ export default function LoginPage() {
                         setLanguage(lang);
                         setLangMenuOpen(false);
                       }}
-                      className={`w-full text-left px-4 py-2.5 text-xs flex items-center space-x-2.5 hover:bg-[#CF7536]/20 hover:text-white transition-all duration-200 cursor-pointer ${language === lang ? 'bg-[#CF7536]/10 text-[#CF7536] font-bold' : 'text-gray-300'}`}
+                      className={`w-full text-left px-4 py-2.5 text-xs flex items-center space-x-2.5 hover:bg-[#CF7536]/10 hover:text-gray-900 transition-all duration-200 cursor-pointer ${language === lang ? 'bg-[#CF7536]/10 text-[#CF7536] font-bold' : 'text-gray-700'}`}
                     >
                       <span>{languageFlags[lang]}</span>
                       <span>{languageNames[lang]}</span>
@@ -266,19 +258,19 @@ export default function LoginPage() {
       </div>
 
       {/* Main Split Screen Container Card */}
-      <div className="w-full max-w-6xl min-h-[600px] bg-[#1E2122]/95 border border-white/5 rounded-none md:rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] overflow-hidden grid grid-cols-1 lg:grid-cols-12">
+      <div className="w-full max-w-6xl min-h-[600px] bg-white border border-gray-100 rounded-none md:rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.06)] overflow-hidden grid grid-cols-1 lg:grid-cols-12">
         
         {/* Left Panel: Luxury Brand Presentation (Col Span 5) */}
-        <div className="lg:col-span-5 relative hidden lg:flex flex-col justify-between p-10 overflow-hidden bg-black">
+        <div className="lg:col-span-5 relative hidden lg:flex flex-col justify-between p-10 overflow-hidden bg-[#FAF9F6]">
           {/* Background image with high-end overlay */}
           <div className="absolute inset-0 z-0">
             <img 
               src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1000&q=80" 
               alt="Luxury Building" 
-              className="w-full h-full object-cover opacity-50 transform scale-105"
+              className="w-full h-full object-cover opacity-85 transform scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1E2122] via-[#1E2122]/50 to-black/20"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#1E2122]"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white"></div>
           </div>
 
           {/* Top Logo and Back to home */}
@@ -287,14 +279,14 @@ export default function LoginPage() {
               <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#CF7536] to-[#A15A28] flex items-center justify-center text-white font-extrabold text-xs shadow-md transition-all group-hover:scale-105">
                 SV
               </div>
-              <span className="font-extrabold text-base tracking-tight text-white">
+              <span className="font-extrabold text-base tracking-tight text-gray-800">
                 STAY<span className="text-[#CF7536]">VERSE</span>
               </span>
             </a>
             
             <a 
               href="/" 
-              className="text-xs font-semibold text-gray-400 hover:text-white flex items-center gap-1 transition-all duration-200"
+              className="text-xs font-semibold text-gray-500 hover:text-gray-800 flex items-center gap-1 transition-all duration-200"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back</span>
@@ -309,16 +301,16 @@ export default function LoginPage() {
               transition={{ delay: 0.2 }}
               className="space-y-4"
             >
-              <span className="bg-[#CF7536]/20 text-[#CF7536] border border-[#CF7536]/30 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+              <span className="bg-[#CF7536]/10 text-[#CF7536] border border-[#CF7536]/25 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                 Luxury Real Estate
               </span>
-              <h2 className="text-3xl font-extrabold text-white leading-tight">
+              <h2 className="text-3xl font-extrabold text-gray-800 leading-tight">
                 Discover the Art of <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CF7536] to-[#F39D66]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#CF7536] to-[#A15A28]">
                   Refined Living
                 </span>
               </h2>
-              <p className="text-sm text-gray-300 font-light leading-relaxed">
+              <p className="text-sm text-gray-600 font-light leading-relaxed">
                 {t.brandQuote}
               </p>
             </motion.div>
@@ -327,26 +319,26 @@ export default function LoginPage() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
-              className="flex items-start space-x-3.5 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 shadow-xl"
+              className="flex items-start space-x-3.5 bg-white/70 backdrop-blur-md border border-gray-150 rounded-2xl p-4 shadow-sm"
             >
-              <div className="w-8 h-8 rounded-lg bg-[#CF7536]/20 flex items-center justify-center text-[#CF7536] shrink-0 mt-0.5">
+              <div className="w-8 h-8 rounded-lg bg-[#CF7536]/10 flex items-center justify-center text-[#CF7536] shrink-0 mt-0.5">
                 <Shield className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-white mb-1">Stayverse Ecosystem</h4>
-                <p className="text-[11px] text-gray-400 leading-normal font-light">{t.brandConcept}</p>
+                <h4 className="text-xs font-bold text-gray-800 mb-1">Stayverse Ecosystem</h4>
+                <p className="text-[11px] text-gray-500 leading-normal font-light">{t.brandConcept}</p>
               </div>
             </motion.div>
           </div>
 
           {/* Bottom Copyright */}
-          <div className="relative z-10 text-[10px] text-gray-500 font-semibold select-none">
+          <div className="relative z-10 text-[10px] text-gray-400 font-semibold select-none">
             © 2026 STAYVERSE CO., LTD. ALL RIGHTS RESERVED.
           </div>
         </div>
 
         {/* Right Panel: Clean interactive Form inputs (Col Span 7) */}
-        <div className="lg:col-span-7 flex flex-col justify-center p-8 md:p-14 bg-[#1E2122]">
+        <div className="lg:col-span-7 flex flex-col justify-center p-8 md:p-14 bg-white">
           
           {/* Logo visible only on mobile */}
           <div className="flex lg:hidden justify-between items-center mb-8 select-none">
@@ -354,14 +346,14 @@ export default function LoginPage() {
               <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-[#CF7536] to-[#A15A28] flex items-center justify-center text-white font-extrabold text-xs shadow-md">
                 SV
               </div>
-              <span className="font-extrabold text-base tracking-tight text-white">
+              <span className="font-extrabold text-base tracking-tight text-gray-800">
                 STAY<span className="text-[#CF7536]">VERSE</span>
               </span>
             </a>
             
             <a 
               href="/" 
-              className="text-xs font-semibold text-gray-400 hover:text-white flex items-center gap-1 transition-all"
+              className="text-xs font-semibold text-gray-500 hover:text-gray-800 flex items-center gap-1 transition-all"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
               <span>Back</span>
@@ -370,8 +362,8 @@ export default function LoginPage() {
 
           <div className="space-y-6">
             <div>
-              <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">{t.welcome}</h1>
-              <p className="text-xs text-gray-400 font-light mt-1.5">{t.subtitle}</p>
+              <h1 className="text-2xl md:text-3xl font-extrabold text-gray-850 tracking-tight">{t.welcome}</h1>
+              <p className="text-xs text-gray-500 font-light mt-1.5">{t.subtitle}</p>
             </div>
 
             {/* Error and Success Banners */}
@@ -381,7 +373,7 @@ export default function LoginPage() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="bg-red-500/10 border border-red-500/35 text-red-400 text-xs px-4 py-3 rounded-xl flex items-center gap-2"
+                  className="bg-red-500/10 border border-red-500/25 text-red-600 text-xs px-4 py-3 rounded-xl flex items-center gap-2"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping"></span>
                   <span className="font-medium">{error}</span>
@@ -392,7 +384,7 @@ export default function LoginPage() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="bg-green-500/10 border border-green-500/35 text-green-400 text-xs px-4 py-3 rounded-xl flex items-center gap-2"
+                  className="bg-green-500/10 border border-green-500/25 text-green-600 text-xs px-4 py-3 rounded-xl flex items-center gap-2"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500"></span>
                   <span className="font-medium">{success}</span>
@@ -400,36 +392,18 @@ export default function LoginPage() {
               )}
             </AnimatePresence>
 
-            {/* Big Prominent SSO Login Button */}
-            <button
-              type="button"
-              onClick={handleSSOLogin}
-              disabled={loading}
-              className="w-full bg-[#CF7536] hover:bg-[#A15A28] disabled:bg-[#CF7536]/50 text-white font-bold py-3.5 px-4 rounded-xl text-sm transition-all duration-300 transform active:scale-[0.98] shadow-[0_4px_20px_rgba(207,117,54,0.3)] hover:shadow-[0_6px_25px_rgba(207,117,54,0.4)] cursor-pointer flex items-center justify-center gap-2 select-none"
-              id="sso-login-button"
-            >
-              {loading ? (
-                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-              ) : (
-                <>
-                  <Shield className="w-4 h-4 text-white" />
-                  <span>{t.ssoButton}</span>
-                </>
-              )}
-            </button>
-
             {/* Divider lines */}
             <div className="flex items-center gap-3 py-2 select-none">
-              <div className="flex-1 h-[1px] bg-white/10"></div>
-              <span className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">{t.orDivider}</span>
-              <div className="flex-1 h-[1px] bg-white/10"></div>
+              <div className="flex-1 h-[1px] bg-gray-150"></div>
+              
+              <div className="flex-1 h-[1px] bg-gray-150"></div>
             </div>
 
             {/* Traditional Email Form */}
             <form onSubmit={handleEmailLogin} className="space-y-4">
               {/* Email field */}
               <div className="space-y-1.5">
-                <label className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">{t.emailLabel}</label>
+                <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">{t.emailLabel}</label>
                 <div className="relative">
                   <input
                     type="email"
@@ -438,16 +412,16 @@ export default function LoginPage() {
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={loading}
                     required
-                    className="w-full pl-10 pr-4 py-3 bg-[#131516] border border-white/10 focus:border-[#CF7536] rounded-xl text-sm text-white placeholder-gray-600 focus:outline-none transition-all duration-200 font-medium"
+                    className="w-full pl-10 pr-4 py-3 bg-[#FAF9F6] border border-gray-200 focus:border-[#CF7536] rounded-xl text-sm text-gray-800 placeholder-gray-400 focus:outline-none transition-all duration-200 font-medium"
                     id="login-email-input"
                   />
-                  <Mail className="absolute left-3.5 top-3.5 w-4 h-4 text-gray-600" />
+                  <Mail className="absolute left-3.5 top-3.5 w-4 h-4 text-gray-400" />
                 </div>
               </div>
 
               {/* Password field */}
               <div className="space-y-1.5">
-                <label className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">{t.passwordLabel}</label>
+                <label className="text-[11px] font-bold text-gray-500 uppercase tracking-wider">{t.passwordLabel}</label>
                 <div className="relative">
                   <input
                     type={showPassword ? 'text' : 'password'}
@@ -456,14 +430,14 @@ export default function LoginPage() {
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={loading}
                     required
-                    className="w-full pl-10 pr-11 py-3 bg-[#131516] border border-white/10 focus:border-[#CF7536] rounded-xl text-sm text-white placeholder-gray-600 focus:outline-none transition-all duration-200 font-medium"
+                    className="w-full pl-10 pr-11 py-3 bg-[#FAF9F6] border border-gray-200 focus:border-[#CF7536] rounded-xl text-sm text-gray-800 placeholder-gray-400 focus:outline-none transition-all duration-200 font-medium"
                     id="login-password-input"
                   />
-                  <Lock className="absolute left-3.5 top-3.5 w-4 h-4 text-gray-600" />
+                  <Lock className="absolute left-3.5 top-3.5 w-4 h-4 text-gray-400" />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-3 p-1 hover:text-white text-gray-500 rounded transition-colors cursor-pointer"
+                    className="absolute right-3 top-3 p-1 hover:text-gray-800 text-gray-400 rounded transition-colors cursor-pointer"
                   >
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
@@ -472,13 +446,13 @@ export default function LoginPage() {
 
               {/* Remember & Forgot options */}
               <div className="flex items-center justify-between text-xs select-none">
-                <label className="flex items-center gap-2 text-gray-400 font-medium cursor-pointer">
+                <label className="flex items-center gap-2 text-gray-600 font-medium cursor-pointer">
                   <input
                     type="checkbox"
                     checked={remember}
                     onChange={() => setRemember(!remember)}
                     disabled={loading}
-                    className="w-4 h-4 rounded border-white/15 text-[#CF7536] bg-[#131516] focus:ring-[#CF7536]/30 cursor-pointer"
+                    className="w-4 h-4 rounded border-gray-300 text-[#CF7536] bg-white focus:ring-[#CF7536]/30 cursor-pointer"
                   />
                   <span>{t.rememberMe}</span>
                 </label>
@@ -491,7 +465,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-[#131516] border border-white/15 hover:border-[#CF7536] hover:bg-white hover:text-black disabled:bg-gray-800 disabled:border-transparent disabled:text-gray-500 font-bold py-3 px-4 rounded-xl text-sm transition-all duration-300 transform active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2 select-none mt-2"
+                className="w-full bg-[#191B1C] hover:bg-[#CF7536] hover:shadow-lg hover:shadow-[#CF7536]/20 transition-all border border-transparent text-white font-bold py-3 px-4 rounded-xl text-sm transform active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2 select-none mt-2"
                 id="login-email-submit"
               >
                 {loading && !success ? (
@@ -508,39 +482,39 @@ export default function LoginPage() {
             {/* Social logins */}
             <div className="space-y-4 pt-4 select-none">
               <div className="flex items-center gap-3">
-                <div className="flex-1 h-[1px] bg-white/5"></div>
-                <span className="text-[9px] text-gray-600 uppercase tracking-widest font-bold">{t.socialLogin}</span>
-                <div className="flex-1 h-[1px] bg-white/5"></div>
+                <div className="flex-1 h-[1px] bg-gray-150"></div>
+                <span className="text-[9px] text-gray-400 uppercase tracking-widest font-bold">{t.socialLogin}</span>
+                <div className="flex-1 h-[1px] bg-gray-150"></div>
               </div>
 
               <div className="grid grid-cols-3 gap-3">
-                <button type="button" className="flex items-center justify-center gap-2 py-2.5 px-3 bg-[#131516] hover:bg-white/5 border border-white/5 hover:border-white/10 rounded-xl text-xs text-gray-300 font-semibold cursor-pointer transition-all">
-                  <Chrome className="w-4 h-4 text-red-400" />
+                <button type="button" className="flex items-center justify-center gap-2 py-2.5 px-3 bg-white hover:bg-gray-50 border border-gray-250 rounded-xl text-xs text-gray-600 font-semibold cursor-pointer transition-all shadow-sm">
+                  <Chrome className="w-4 h-4 text-red-500" />
                   <span className="hidden sm:inline">Google</span>
                 </button>
-                <button type="button" className="flex items-center justify-center gap-2 py-2.5 px-3 bg-[#131516] hover:bg-white/5 border border-white/5 hover:border-white/10 rounded-xl text-xs text-gray-300 font-semibold cursor-pointer transition-all">
-                  <Facebook className="w-4 h-4 text-blue-500" />
+                <button type="button" className="flex items-center justify-center gap-2 py-2.5 px-3 bg-white hover:bg-gray-50 border border-gray-250 rounded-xl text-xs text-gray-600 font-semibold cursor-pointer transition-all shadow-sm">
+                  <Facebook className="w-4 h-4 text-blue-600" />
                   <span className="hidden sm:inline">Facebook</span>
                 </button>
-                <button type="button" className="flex items-center justify-center gap-2 py-2.5 px-3 bg-[#131516] hover:bg-white/5 border border-white/5 hover:border-white/10 rounded-xl text-xs text-gray-300 font-semibold cursor-pointer transition-all">
-                  <Apple className="w-4 h-4 text-white" />
+                <button type="button" className="flex items-center justify-center gap-2 py-2.5 px-3 bg-white hover:bg-gray-50 border border-gray-250 rounded-xl text-xs text-gray-600 font-semibold cursor-pointer transition-all shadow-sm">
+                  <Apple className="w-4 h-4 text-black" />
                   <span className="hidden sm:inline">Apple</span>
                 </button>
               </div>
             </div>
 
             {/* Mock Admin Help Block */}
-            <div className="mt-4 p-4 bg-white/5 border border-white/10 rounded-2xl space-y-2">
-              <p className="text-[10px] text-gray-400 font-light leading-normal">{t.mockAdminNote}</p>
+            <div className="mt-4 p-4 bg-gray-50 border border-gray-150 rounded-2xl space-y-2">
+              <p className="text-[10px] text-gray-500 font-light leading-normal">{t.mockAdminNote}</p>
               <div className="flex items-center justify-between text-[11px] font-mono select-all">
-                <div className="text-gray-300">
+                <div className="text-gray-600">
                   Email: <span className="text-[#CF7536]">admin@stayverse.com</span> <br />
                   Pass: <span className="text-[#CF7536]">admin1234</span>
                 </div>
                 <button 
                   onClick={handleFillMockAdmin}
                   type="button"
-                  className="bg-[#CF7536]/20 hover:bg-[#CF7536]/30 text-[#CF7536] px-2.5 py-1 rounded text-[10px] font-bold font-sans cursor-pointer transition-all select-none"
+                  className="bg-[#CF7536]/10 hover:bg-[#CF7536]/25 text-[#CF7536] px-2.5 py-1 rounded text-[10px] font-bold font-sans cursor-pointer transition-all select-none"
                 >
                   {t.useMockAdmin}
                 </button>
@@ -549,7 +523,7 @@ export default function LoginPage() {
 
             {/* Sign Up switcher */}
             <div className="text-center text-xs select-none pt-2">
-              <span className="text-gray-400 font-medium">{t.signUpText} </span>
+              <span className="text-gray-500 font-medium">{t.signUpText} </span>
               <a href="#" className="text-[#CF7536] hover:text-[#A15A28] font-bold transition-all ml-1">
                 {t.signUpBtn}
               </a>
