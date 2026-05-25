@@ -62,7 +62,7 @@ export const mockProperties = [
     tag: 'HOT CONDOMINIUM FOR RENT',
     lifestyle: 'ใกล้ห้างสรรพสินค้า',
     roomType: 'studio',
-    imageUrl: 'https://images.unsplash.com/photo-1600607687931-cebf12f45cc3?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
     virtualTour: false,
     brand: 'ออริจิ้น พร็อพเพอร์ตี้ (Origin Property)',
     province: 'กรุงเทพ ฯ',

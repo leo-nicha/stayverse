@@ -6,7 +6,7 @@ import { useTranslation, Language } from '@/context/LanguageContext';
 import { mockProperties } from '@/utils/mockProperties';
 import {
   Phone, Mail, Globe, Menu, X, ChevronDown, MapPin,
-  Share2, ShieldCheck, Check, Info, Heart, Search, BedDouble, Square, Bath, ChevronLeft, ChevronRight, Calculator
+  Share2, ShieldCheck, Check, Info, Heart, Star, Search, BedDouble, Square, Bath, ChevronLeft, ChevronRight, Calculator
 } from 'lucide-react';
 
 const languageFlags: Record<Language, string> = {
@@ -421,34 +421,48 @@ export default function ProjectDetailPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-grayPalette-50 text-grayPalette-500 font-sans">
-      {/* 1. TOP HEADER CONTACT INFO (Dark Slate Blue) */}
-      <div className="bg-bluePalette-600 text-white py-2 border-b border-white/10 transition-all text-xs md:text-sm">
-        <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-between items-center gap-2">
+      {/* 1. TOP HEADER NAVIGATION */}
+      <div className="bg-white border-b border-gray-200 py-2 hidden md:block relative">
+        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-xs">
           <div className="flex items-center space-x-6">
-            <a href="mailto:info@stayverse.com" className="flex items-center space-x-2 text-grayPalette-100 hover:text-orangePalette-100 transition-all">
-              <Mail className="w-4 h-4 text-orangePalette-200" />
-              <span>info@stayverse.com</span>
+            <a href="/" className="flex items-center">
+              <img
+                src="https://res.cloudinary.com/dvv3wvgnt/image/upload/v1779681125/svlogo_tzfhad.webp"
+                alt="STAYVERSE Logo"
+                className="h-12 w-auto object-contain"
+              />
             </a>
-            <a href="tel:+6620562333" className="flex items-center space-x-2 text-grayPalette-100 hover:text-orangePalette-100 transition-all">
-              <Phone className="w-4 h-4 text-orangePalette-200" />
-              <span>+66 2 056 2333</span>
-            </a>
+            <div className="relative">
+              <input 
+                type="text" 
+                placeholder={topHeaderTranslations[language].search} 
+                className="pl-9 pr-4 py-1.5 bg-gray-100 rounded-full border border-transparent focus:border-orangePalette-200 focus:bg-white outline-none w-64 text-gray-800 transition-all shadow-inner" 
+              />
+              <Search className="w-3.5 h-3.5 absolute left-3.5 top-2 text-gray-500" />
+            </div>
           </div>
-
-          <div className="flex items-center space-x-4">
-            {/* Lang Dropdown */}
+          
+          <div className="flex items-center space-x-4 font-semibold text-gray-600">
+            <a href="/packages" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].listProp}</a>
+            <a href="/subscription" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].sub}</a>
+            <a href="/admin" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].myHome}</a>
+            <div className="h-3 w-[1px] bg-gray-300"></div>
+            <a href="/login" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].login}</a>
+            <div className="h-3 w-[1px] bg-gray-300"></div>
+            
+            {/* Language Switcher */}
             <div className="relative">
               <button
                 onClick={() => setLangMenuOpen(!langMenuOpen)}
-                className="flex items-center space-x-2 px-3 py-1 bg-white/5 hover:bg-white/10 rounded-md border border-white/10 text-xs transition-all cursor-pointer"
+                className="flex items-center space-x-1.5 px-2 py-1 hover:bg-gray-100 rounded-md transition-all cursor-pointer"
               >
                 <img src={languageFlags[language]} alt={language} className="w-4 h-3 object-cover rounded-sm" />
-                <span className="font-semibold uppercase">{language}</span>
-                <ChevronDown className="w-3.5 h-3.5 text-orangePalette-200" />
+                <span className="uppercase">{language}</span>
+                <ChevronDown className="w-3 h-3 text-gray-400" />
               </button>
 
               {langMenuOpen && (
-                <div className="absolute right-0 mt-1 w-36 bg-grayPalette-600 border border-white/10 rounded-lg shadow-xl z-50 overflow-hidden">
+                <div className="absolute right-0 mt-2 w-36 bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-hidden text-gray-800 font-medium">
                   {(Object.keys(languageFlags) as Language[]).map((lang) => (
                     <button
                       key={lang}
@@ -456,7 +470,7 @@ export default function ProjectDetailPage() {
                         setLanguage(lang);
                         setLangMenuOpen(false);
                       }}
-                      className={`w-full text-left px-3 py-2 text-xs flex items-center space-x-2 hover:bg-orangePalette-200/20 hover:text-white transition-all ${language === lang ? 'bg-orangePalette-200/10 text-orangePalette-200 font-semibold' : 'text-grayPalette-100'}`}
+                      className={`w-full text-left px-4 py-2.5 text-xs flex items-center space-x-2.5 hover:bg-orangePalette-100/50 hover:text-gray-900 transition-all duration-200 cursor-pointer ${language === lang ? 'bg-orangePalette-100/50 text-orangePalette-200 font-bold' : 'text-gray-700'}`}
                     >
                       <img src={languageFlags[lang]} alt={lang} className="w-4 h-3 object-cover rounded-sm" />
                       <span>{languageNames[lang]}</span>
@@ -465,20 +479,15 @@ export default function ProjectDetailPage() {
                 </div>
               )}
             </div>
-
-            {/* Quick action buttons */}
-            <a href="/#contact" className="hidden md:inline-block bg-orangePalette-200 hover:bg-orangePalette-300 text-white px-3 py-1 rounded text-xs font-semibold uppercase tracking-wider transition-all">
-              {t.postProperty}
-            </a>
           </div>
         </div>
       </div>
 
       {/* 2. MAIN HEADER NAVIGATION (Transparent Glass) */}
-      <header className="sticky top-0 z-40 bg-[#f4f1eb] backdrop-blur-md border-b border-white/5 transition-all py-4">
+      <header className="bg-[#f4f1eb] backdrop-blur-md border-b border-white/5 transition-all py-4">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
-          <a href="#" className="flex items-center">
+          <a href="/" className="flex md:hidden items-center">
             <img
               src="https://res.cloudinary.com/dvv3wvgnt/image/upload/v1779681125/svlogo_tzfhad.webp"
               alt="STAYVERSE Logo"
@@ -500,7 +509,7 @@ export default function ProjectDetailPage() {
               </button>
               <div className="absolute top-full left-0 pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                 <div className="bg-[#f4f1eb] border border-white/10 rounded-lg shadow-xl overflow-hidden py-1">
-                  <a href="#lifeverse" className="block px-4 py-2.5 text-xs text-[#306473] hover:bg-orangePalette-200/20 hover:text-orangePalette-200 transition-colors">LivingVerse</a>
+                  <a href="/#lifeverse" className="block px-4 py-2.5 text-xs text-[#306473] hover:bg-orangePalette-200/20 hover:text-orangePalette-200 transition-colors">LivingVerse</a>
                   <a href="#" className="block px-4 py-2.5 text-xs text-[#306473] hover:bg-orangePalette-200/20 hover:text-orangePalette-200 transition-colors">SpaceVerse</a>
                   <a href="#" className="block px-4 py-2.5 text-xs text-[#306473] hover:bg-orangePalette-200/20 hover:text-orangePalette-200 transition-colors">ReviewVerse</a>
                   <a href="#" className="block px-4 py-2.5 text-xs text-[#306473] hover:bg-orangePalette-200/20 hover:text-orangePalette-200 transition-colors">TrendVerse</a>
@@ -514,18 +523,23 @@ export default function ProjectDetailPage() {
           <div className="flex items-center space-x-4">
             <button
               onClick={() => setBurgerMenuOpen(!burgerMenuOpen)}
-              className="p-2 bg-white/5 hover:bg-white/10 rounded-full border border-white/10 text-white cursor-pointer transition-all lg:flex hidden"
+              className="p-2 bg-white/5 hover:bg-white/10 rounded-full border border-white/10 text-gray-500 cursor-pointer transition-all lg:flex hidden"
             >
               <Menu className="w-5 h-5 text-orangePalette-200" />
             </button>
-            <a href="#contact" className="bg-white hover:bg-orangePalette-100 text-bluePalette-600 px-4 py-2 rounded-full text-xs font-bold uppercase transition-all-custom">
+
+            {/* Login is only visible on mobile main header since it's in top bar for tablet/desktop */}
+            <a href="/login" className="md:hidden text-[#306473] hover:text-orangePalette-200 font-bold text-xs uppercase transition-all-custom px-3 py-2 border border-[#306473]/25 hover:border-orangePalette-200 rounded-full">
+              {language === 'th' ? 'เข้าสู่ระบบ' : 'Login'}
+            </a>
+            <a href="/#contact" className="bg-white hover:bg-orangePalette-100 text-bluePalette-600 px-4 py-2 rounded-full text-xs font-bold uppercase transition-all-custom">
               {t.sendEnquiry}
             </a>
 
             {/* Mobile menu toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 bg-white/5 hover:bg-white/10 rounded-full text-white cursor-pointer transition-all lg:hidden flex"
+              className="p-2 bg-white/5 hover:bg-white/10 rounded-full text-gray-500 cursor-pointer transition-all lg:hidden flex"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5 text-orangePalette-200" />}
             </button>
@@ -539,17 +553,19 @@ export default function ProjectDetailPage() {
               <div>
                 <h4 className="text-orangePalette-200 font-bold uppercase tracking-wider text-xs mb-4">{t.forSale}</h4>
                 <div className="flex flex-col space-y-2 text-sm text-grayPalette-100">
-                  {propertyTypes.slice(1).map((type) => (
-                    <a key={type.value} href="/#properties" onClick={() => setBurgerMenuOpen(false)} className="hover:text-orangePalette-200 transition-all">{type.label}</a>
-                  ))}
+                  <a href="/#properties" className="hover:text-orangePalette-200 transition-all">Condominium</a>
+                  <a href="/#properties" className="hover:text-orangePalette-200 transition-all">Town Home</a>
+                  <a href="/#properties" className="hover:text-orangePalette-200 transition-all">House</a>
+                  <a href="/#properties" className="hover:text-orangePalette-200 transition-all">Villa</a>
                 </div>
               </div>
               <div>
                 <h4 className="text-orangePalette-200 font-bold uppercase tracking-wider text-xs mb-4">{t.forRent}</h4>
                 <div className="flex flex-col space-y-2 text-sm text-grayPalette-100">
-                  {propertyTypes.slice(1).map((type) => (
-                    <a key={type.value} href="/#properties" onClick={() => setBurgerMenuOpen(false)} className="hover:text-orangePalette-200 transition-all">{type.label}</a>
-                  ))}
+                  <a href="/#properties" className="hover:text-orangePalette-200 transition-all">Condominium</a>
+                  <a href="/#properties" className="hover:text-orangePalette-200 transition-all">Town Home</a>
+                  <a href="/#properties" className="hover:text-orangePalette-200 transition-all">House</a>
+                  <a href="/#properties" className="hover:text-orangePalette-200 transition-all">Villa</a>
                 </div>
               </div>
               <div>
@@ -583,7 +599,7 @@ export default function ProjectDetailPage() {
             <div className="flex flex-col space-y-3 pb-2 border-b border-white/5">
               <span className="text-white text-base font-semibold">LIFE VERSE</span>
               <div className="pl-4 flex flex-col space-y-3">
-                <a href="#lifeverse" onClick={() => setMobileMenuOpen(false)} className="text-white/80 hover:text-orangePalette-200 text-sm transition-all">LivingVerse</a>
+                <a href="/#lifeverse" onClick={() => setMobileMenuOpen(false)} className="text-white/80 hover:text-orangePalette-200 text-sm transition-all">LivingVerse</a>
                 <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white/80 hover:text-orangePalette-200 text-sm transition-all">SpaceVerse</a>
                 <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white/80 hover:text-orangePalette-200 text-sm transition-all">ReviewVerse</a>
                 <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white/80 hover:text-orangePalette-200 text-sm transition-all">TrendVerse</a>
@@ -591,10 +607,10 @@ export default function ProjectDetailPage() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4 pt-4">
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="bg-orangePalette-200 hover:bg-orangePalette-300 text-white text-center py-2.5 rounded font-semibold text-sm transition-all">
+              <a href="/#contact" onClick={() => setMobileMenuOpen(false)} className="bg-orangePalette-200 hover:bg-orangePalette-300 text-white text-center py-2.5 rounded font-semibold text-sm transition-all animate-pulse">
                 {t.postProperty}
               </a>
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="bg-white text-bluePalette-600 text-center py-2.5 rounded font-semibold text-sm transition-all">
+              <a href="/#contact" onClick={() => setMobileMenuOpen(false)} className="bg-white text-bluePalette-600 text-center py-2.5 rounded font-semibold text-sm transition-all">
                 {t.sendEnquiry}
               </a>
             </div>
@@ -1408,6 +1424,7 @@ export default function ProjectDetailPage() {
                           src={prop.imageUrl}
                           alt={prop.name}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80'; }}
                         />
 
                         {/* Top-left Badges */}
@@ -1553,42 +1570,70 @@ export default function ProjectDetailPage() {
 
       
 
-      {/* 6. FOOTER */}
-      <footer className="bg-grayPalette-600 text-grayPalette-100 py-16 border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-4 w-full">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            <div>
-              <a href="/" className="flex items-center mb-4">
-                <img
-                  src="https://res.cloudinary.com/dvv3wvgnt/image/upload/v1779681125/svlogo_tzfhad.webp"
-                  alt="STAYVERSE Logo"
-                  className="h-12 w-auto object-contain brightness-0 invert"
-                />
-              </a>
-              <p className="text-xs text-gray-400 mt-4 leading-relaxed">
-                {t.footerDesc}
-              </p>
-            </div>
-            <div>
-              <h4 className="text-white font-bold text-sm mb-4">Contact Info</h4>
-              <p className="text-xs text-gray-400">Email: info@stayverse.com</p>
-              <p className="text-xs text-gray-400 mt-2">Phone: +66 2 056 2333</p>
-            </div>
-            <div>
-              <h4 className="text-white font-bold text-sm mb-4">Properties</h4>
-              <p className="text-xs text-gray-400">Condominium</p>
-              <p className="text-xs text-gray-400 mt-2">Town Home</p>
-              <p className="text-xs text-gray-400 mt-2">Luxury House</p>
-            </div>
-            <div>
-              <h4 className="text-white font-bold text-sm mb-4">Stayverse Services</h4>
-              <p className="text-xs text-gray-400">Tenancy Management</p>
-              <p className="text-xs text-gray-400 mt-2">Decor & Furnishing</p>
-              <p className="text-xs text-gray-400 mt-2">Advisory Service</p>
+      {/* 10. LUXURY FOOTER */}
+      <footer className="bg-[#052b37] text-white pt-16 pb-8 border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 w-full grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+
+          {/* Col 1 */}
+          <div className="space-y-4">
+            <a href="/" className="flex items-center">
+              <img
+                src="https://res.cloudinary.com/dvv3wvgnt/image/upload/v1779681125/svlogo_tzfhad.webp"
+                alt="STAYVERSE Logo"
+                className="h-12 w-auto object-contain brightness-0 invert"
+              />
+            </a>
+            <p className="text-xs text-grayPalette-100 leading-relaxed">
+              {t.footerDesc}
+            </p>
+            <div className="flex items-center space-x-3 text-grayPalette-100">
+              <span className="p-2 bg-white/5 rounded-full hover:bg-orangePalette-200 transition-all cursor-pointer"><Star className="w-4 h-4 text-orangePalette-200" /></span>
+              <span className="p-2 bg-white/5 rounded-full hover:bg-orangePalette-200 transition-all cursor-pointer"><Heart className="w-4 h-4 text-orangePalette-200" /></span>
             </div>
           </div>
-          <div className="border-t border-white/10 pt-8 text-center text-xs text-gray-400">
-            <p>{t.rightsReserved}</p>
+
+          {/* Col 2 */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-orangePalette-200">Quick Links</h4>
+            <div className="flex flex-col space-y-2 text-xs text-grayPalette-100">
+              <a href="/#search-engine" className="hover:text-orangePalette-200 transition-all">Search Engine</a>
+              <a href="/#properties" className="hover:text-orangePalette-200 transition-all">Premium Listings</a>
+              <a href="/#calculators" className="hover:text-orangePalette-200 transition-all">Interactive Calculators</a>
+              <a href="/#contact" className="hover:text-orangePalette-200 transition-all">Get in Touch</a>
+            </div>
+          </div>
+
+          {/* Col 3 */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-orangePalette-200">Properties</h4>
+            <div className="flex flex-col space-y-2 text-xs text-grayPalette-100">
+              <a href="/#properties" className="hover:text-orangePalette-200 transition-all">{t.condo}</a>
+              <a href="/#properties" className="hover:text-orangePalette-200 transition-all">{t.house}</a>
+              <a href="/#properties" className="hover:text-orangePalette-200 transition-all">{t.villa}</a>
+              <a href="/#properties" className="hover:text-orangePalette-200 transition-all">{t.townhome}</a>
+            </div>
+          </div>
+
+          {/* Col 4 */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-orangePalette-200">Advisory Head Office</h4>
+            <div className="text-xs text-grayPalette-100 space-y-2">
+              <p>Stayverse Real Estate Co., Ltd.</p>
+              <p>Level 28, Exchange Tower, Sukhumvit Road,</p>
+              <p>Khlong Toei, Bangkok 10110, Thailand</p>
+              <p className="pt-2">Tel: +66 2 056 2333</p>
+              <p>Email: info@stayverse.com</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 w-full pt-8 border-t border-white/5 flex flex-wrap justify-between items-center gap-4 text-xs text-grayPalette-200">
+          <p>{t.rightsReserved}</p>
+          <div className="flex space-x-6">
+            <a href="#" className="hover:text-orangePalette-200 transition-all">Terms of Service</a>
+            <a href="#" className="hover:text-orangePalette-200 transition-all">{t.privacyPolicy}</a>
+            <a href="#" className="hover:text-orangePalette-200 transition-all">Sitemap</a>
           </div>
         </div>
       </footer>
