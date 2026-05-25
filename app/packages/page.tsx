@@ -32,6 +32,15 @@ const topHeaderTranslations: Record<Language, Record<string, string>> = {
   ko: { search: '검색...', listProp: '매물 등록', sub: '구독', myHome: '마이 홈', login: '로그인' }
 };
 
+const mainMenuTranslations: Record<Language, Record<string, string>> = {
+  th: { home: 'หน้าแรก', rentToOwn: 'เช่าออมห้อง', monthlyRent: 'เช่าสบายจ่ายรายเดือน', sellWithTenant: 'ขายพร้อมผู้เช่า' },
+  en: { home: 'Home', rentToOwn: 'Rent to Own', monthlyRent: 'Monthly Rent', sellWithTenant: 'Sell with Tenant' },
+  ru: { home: 'Главная', rentToOwn: 'Аренда с выкупом', monthlyRent: 'Аренда на месяц', sellWithTenant: 'Продажа с арендатором' },
+  zh: { home: '首页', rentToOwn: '租房存款', monthlyRent: '舒适月租', sellWithTenant: '带租客出售' },
+  ja: { home: 'ホーム', rentToOwn: '賃貸からの購入', monthlyRent: '月額賃貸', sellWithTenant: 'オーナーチェンジ物件' },
+  ko: { home: '홈', rentToOwn: '임대 후 구매', monthlyRent: '월세 임대', sellWithTenant: '세입자 안고 매매' }
+};
+
 export default function PackagesPage() {
   const { language, setLanguage, t } = useTranslation();
   const [langMenuOpen, setLangMenuOpen] = useState(false);
@@ -144,10 +153,10 @@ export default function PackagesPage() {
 
           {/* Desktop Navigation Menu */}
           <nav className="hidden lg:flex items-center space-x-8 text-sm">
-            <a href="/" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">หน้าแรก</a>
-            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">เช่าออมห้อง</a>
-            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">เช่าสบายจ่ายรายเดือน</a>
-            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">ขายพร้อมผู้เช่า</a>
+            <a href="/" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">{mainMenuTranslations[language].home}</a>
+            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">{mainMenuTranslations[language].rentToOwn}</a>
+            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">{mainMenuTranslations[language].monthlyRent}</a>
+            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">{mainMenuTranslations[language].sellWithTenant}</a>
 
             <div className="relative group pb-1">
               <button className="flex items-center space-x-1 text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 font-medium transition-all-custom">
@@ -237,10 +246,10 @@ export default function PackagesPage() {
         {/* Mobile Navigation Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-bluePalette-600/98 backdrop-blur-lg border-b border-white/10 text-white flex flex-col p-6 space-y-4 shadow-xl z-50">
-            <a href="/" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">หน้าแรก</a>
-            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">เช่าออมห้อง</a>
-            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">เช่าสบายจ่ายรายเดือน</a>
-            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">ขายพร้อมผู้เช่า</a>
+            <a href="/" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">{mainMenuTranslations[language].home}</a>
+            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">{mainMenuTranslations[language].rentToOwn}</a>
+            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">{mainMenuTranslations[language].monthlyRent}</a>
+            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">{mainMenuTranslations[language].sellWithTenant}</a>
             <div className="flex flex-col space-y-3 pb-2 border-b border-white/5">
               <span className="text-white text-base font-semibold">LIFE VERSE</span>
               <div className="pl-4 flex flex-col space-y-3">

@@ -111,6 +111,337 @@ const topHeaderTranslations: Record<Language, Record<string, string>> = {
   ja: { search: '検索...', listProp: '物件を掲載', sub: 'サブスクリプション', myHome: 'マイホーム', login: 'ログイン' },
   ko: { search: '검색...', listProp: '매물 등록', sub: '구독', myHome: '마이 홈', login: '로그인' }
 };
+
+const mainMenuTranslations: Record<Language, Record<string, string>> = {
+  th: {
+    home: 'หน้าแรก',
+    rentToOwn: 'เช่าออมห้อง',
+    monthlyRent: 'เช่าสบายจ่ายรายเดือน',
+    sellWithTenant: 'ขายพร้อมผู้เช่า'
+  },
+  en: {
+    home: 'Home',
+    rentToOwn: 'Rent to Own',
+    monthlyRent: 'Monthly Rent',
+    sellWithTenant: 'Sell with Tenant'
+  },
+  ru: {
+    home: 'Главная',
+    rentToOwn: 'Аренда с выкупом',
+    monthlyRent: 'Аренда на месяц',
+    sellWithTenant: 'Продажа с арендатором'
+  },
+  zh: {
+    home: '首页',
+    rentToOwn: '租房存款',
+    monthlyRent: '舒适月租',
+    sellWithTenant: '带租客出售'
+  },
+  ja: {
+    home: 'ホーム',
+    rentToOwn: '賃貸からの購入',
+    monthlyRent: '月額賃貸',
+    sellWithTenant: 'オーナーチェンジ物件'
+  },
+  ko: {
+    home: '홈',
+    rentToOwn: '임대 후 구매',
+    monthlyRent: '월세 임대',
+    sellWithTenant: '세입자 안고 매매'
+  }
+};
+
+const whyChooseUsTranslations: Record<Language, Record<string, string>> = {
+  th: {
+    t1: 'คัดสรรโครงการคุณภาพ',
+    d1: 'เราตรวจสอบคอนโดมิเนียม ที่อยู่อาศัย และโฉนดที่ดินทั้งหมดล่วงหน้า เพื่อให้แน่ใจว่าถูกต้องตามกฎหมายและคุ้มค่าแก่การลงทุนก่อนนำมาลงประกาศ',
+    t2: 'ผู้เชี่ยวชาญทำเลรถไฟฟ้า',
+    d2: 'เชี่ยวชาญพิเศษเฉพาะอสังหาริมทรัพย์ตามแนวรถไฟฟ้าในกรุงเทพฯ (BTS และ MRT) เพื่อความสะดวกสบายขั้นสุดของคุณ',
+    t3: 'ดูแลครบวงจร',
+    d3: 'ตั้งแต่การค้นหาเริ่มต้นและการจัดหาเงินทุน ไปจนถึงการจัดการผู้เช่าและการจดทะเบียนโอนกรรมสิทธิ์ ผู้เชี่ยวชาญของเราจะดูแลคุณในทุกขั้นตอน'
+  },
+  en: {
+    t1: 'Curated Portfolios',
+    d1: 'We pre-vet all condominiums, residential properties, and land titles to ensure legal clearances and investment feasibility before listing.',
+    t2: 'Transit Linkage Experts',
+    d2: 'Specializing exclusively in properties along Bangkok’s transit lines (BTS Skytrain and MRT Underground) for ultimate convenience.',
+    t3: 'Comprehensive Care',
+    d3: 'From initial search and property financing to tenancy management and transfer registration, our experts manage every single step.'
+  },
+  ru: {
+    t1: 'Отобранные портфолио',
+    d1: 'Мы предварительно проверяем все кондоминиумы и земельные участки на юридическую чистоту и инвестиционную привлекательность.',
+    t2: 'Эксперты по недвижимости у метро',
+    d2: 'Специализируемся исключительно на объектах вдоль линий метро Бангкока (BTS и MRT) для вашего максимального удобства.',
+    t3: 'Комплексное обслуживание',
+    d3: 'От первоначального поиска до управления арендой и регистрации перевода прав собственности - наши эксперты контролируют каждый шаг.'
+  },
+  zh: {
+    t1: '精选房源',
+    d1: '我们在挂牌前会预先审查所有公寓、住宅及土地产权，确保法律合规及投资可行性。',
+    t2: '轨道交通房产专家',
+    d2: '专门致力于曼谷轨道交通（BTS 轻轨和 MRT 地铁）沿线房产，为您提供极致便利。',
+    t3: '全方位贴心服务',
+    d3: '从初步搜索、房产融资，到租务管理和过户登记，我们的专家为您打理每一个环节。'
+  },
+  ja: {
+    t1: '厳選されたポートフォリオ',
+    d1: 'リスティング前にすべてのコンドミニアム、住宅、土地の権利を事前審査し、法的な問題がないか確認します。',
+    t2: '駅近物件のエキスパート',
+    d2: '最高の利便性を提供するため、バンコクの交通機関（BTSおよびMRT）沿線の物件に特化しています。',
+    t3: '包括的なサポート',
+    d3: '物件探しや資金調達から、賃貸管理や名義変更の手続きまで、専門家がすべてのステップをサポートします。'
+  },
+  ko: {
+    t1: '엄선된 포트폴리오',
+    d1: '매물 등록 전 모든 콘도, 주거용 부동산 및 토지 소유권을 사전 검토하여 법적 문제와 투자 타당성을 확인합니다.',
+    t2: '역세권 부동산 전문가',
+    d2: '최고의 편의성을 위해 방콕 대중교통(BTS 및 MRT) 노선 주변의 부동산만을 전문으로 다룹니다.',
+    t3: '종합적인 관리 서비스',
+    d3: '초기 검색 및 자금 조달부터 임대 관리 및 명의 이전 등록까지, 전문가가 모든 단계를 관리합니다.'
+  }
+};
+
+const searchEngineTranslations: Record<Language, Record<string, string>> = {
+  th: {
+    brandLabel: 'แบรนด์โครงการ',
+    allBrands: 'ทุกแบรนด์',
+    transitLabel: 'รถไฟฟ้า BTS/MRT',
+    allLines: 'ทุกสาย',
+    stationLabel: 'สถานี',
+    allStations: 'ทุกสถานี',
+    provinceLabel: 'จังหวัด',
+    allProvinces: 'ทุกจังหวัด',
+    districtLabel: 'อำเภอ / เขต',
+    allDistricts: 'ทุกอำเภอ/เขต',
+    subDistrictLabel: 'ตำบล / แขวง',
+    allSubDistricts: 'ทุกตำบล/แขวง'
+  },
+  en: {
+    brandLabel: 'Project Brand',
+    allBrands: 'All brands',
+    transitLabel: 'BTS/MRT Line',
+    allLines: 'All lines',
+    stationLabel: 'Station',
+    allStations: 'All stations',
+    provinceLabel: 'Province',
+    allProvinces: 'All provinces',
+    districtLabel: 'District',
+    allDistricts: 'All districts',
+    subDistrictLabel: 'Sub-district',
+    allSubDistricts: 'All sub-districts'
+  },
+  ru: {
+    brandLabel: 'Бренд проекта',
+    allBrands: 'Все бренды',
+    transitLabel: 'Линия BTS/MRT',
+    allLines: 'Все линии',
+    stationLabel: 'Станция',
+    allStations: 'Все станции',
+    provinceLabel: 'Провинция',
+    allProvinces: 'Все провинции',
+    districtLabel: 'Район',
+    allDistricts: 'Все районы',
+    subDistrictLabel: 'Под-район',
+    allSubDistricts: 'Все под-районы'
+  },
+  zh: {
+    brandLabel: '项目品牌',
+    allBrands: '所有品牌',
+    transitLabel: 'BTS/MRT 线路',
+    allLines: '所有线路',
+    stationLabel: '车站',
+    allStations: '所有车站',
+    provinceLabel: '省份',
+    allProvinces: '所有省份',
+    districtLabel: '区/县',
+    allDistricts: '所有区/县',
+    subDistrictLabel: '街道/镇',
+    allSubDistricts: '所有街道/镇'
+  },
+  ja: {
+    brandLabel: 'プロジェクトブランド',
+    allBrands: 'すべてのブランド',
+    transitLabel: 'BTS/MRT路線',
+    allLines: 'すべての路線',
+    stationLabel: '駅',
+    allStations: 'すべての駅',
+    provinceLabel: '県',
+    allProvinces: 'すべての県',
+    districtLabel: '区/郡',
+    allDistricts: 'すべての区/郡',
+    subDistrictLabel: '町/地区',
+    allSubDistricts: 'すべての町/地区'
+  },
+  ko: {
+    brandLabel: '프로젝트 브랜드',
+    allBrands: '모든 브랜드',
+    transitLabel: 'BTS/MRT 노선',
+    allLines: '모든 노선',
+    stationLabel: '역',
+    allStations: '모든 역',
+    provinceLabel: '도',
+    allProvinces: '모든 도',
+    districtLabel: '구/군',
+    allDistricts: '모든 구/군',
+    subDistrictLabel: '동/면',
+    allSubDistricts: '모든 동/면'
+  }
+};
+
+const highlightTranslations: Record<Language, Record<string, string>> = {
+  th: {
+    title: 'โครงการไฮไลท์',
+    subtitle: 'แสดง {count} โครงการคุณภาพที่ตรงกับไลฟ์สไตล์ของคุณ',
+    noFound: 'ไม่พบโครงการ',
+    tryReset: 'ลองรีเซ็ตหรือปรับเปลี่ยนพารามิเตอร์การค้นหาของคุณ'
+  },
+  en: {
+    title: 'Highlight Projects',
+    subtitle: 'Showing {count} handpicked residences matching your lifestyle',
+    noFound: 'No Properties Found',
+    tryReset: 'Try resetting or modifying your search parameters.'
+  },
+  ru: {
+    title: 'Избранные проекты',
+    subtitle: 'Показано {count} отборных резиденций, подходящих под ваш стиль жизни',
+    noFound: 'Объекты не найдены',
+    tryReset: 'Попробуйте сбросить или изменить параметры поиска.'
+  },
+  zh: {
+    title: '精选项目',
+    subtitle: '显示 {count} 个符合您生活方式的精选住宅',
+    noFound: '未找到房源',
+    tryReset: '尝试重置或修改您的搜索参数。'
+  },
+  ja: {
+    title: 'ハイライトプロジェクト',
+    subtitle: 'あなたのライフスタイルに合う厳選された{count}件の住宅を表示中',
+    noFound: '物件が見つかりません',
+    tryReset: '検索パラメータをリセットまたは変更してみてください。'
+  },
+  ko: {
+    title: '추천 프로젝트',
+    subtitle: '귀하의 라이프스타일에 맞는 {count}개의 엄선된 레지던스를 표시합니다.',
+    noFound: '매물을 찾을 수 없습니다',
+    tryReset: '검색 매개변수를 재설정하거나 수정해 보세요.'
+  }
+};
+
+const sectionTitleTranslations: Record<Language, Record<string, string>> = {
+  th: {
+    videoTitle: 'วิดีโอโครงการ',
+    recommendTitle: 'โครงการแนะนำ',
+    insightTitle: 'อัปเดตเทรนด์การอยู่อาศัยและการลงทุน',
+    guideTitle: 'แนะนำและสาระน่ารู้เกี่ยวกับอสังหาริมทรัพย์',
+    reviewSubtitle: 'ความเห็นจากลูกค้า',
+    reviewTitle: 'รีวิวจากลูกค้า'
+  },
+  en: {
+    videoTitle: 'Project Video',
+    recommendTitle: 'Recommended Projects',
+    insightTitle: 'Urban Living & Real Estate Insights',
+    guideTitle: 'Real Estate Guides & Insights',
+    reviewSubtitle: 'Client Feedback',
+    reviewTitle: 'Client Feedback'
+  },
+  ru: {
+    videoTitle: 'Видео проекта',
+    recommendTitle: 'Рекомендуемые проекты',
+    insightTitle: 'Тенденции городской жизни и недвижимости',
+    guideTitle: 'Руководства и обзоры по недвижимости',
+    reviewSubtitle: 'Мнение клиентов',
+    reviewTitle: 'Отзывы клиентов'
+  },
+  zh: {
+    videoTitle: '项目视频',
+    recommendTitle: '推荐项目',
+    insightTitle: '城市生活和房地产见解',
+    guideTitle: '房地产指南和见解',
+    reviewSubtitle: '客户意见',
+    reviewTitle: '客户反馈'
+  },
+  ja: {
+    videoTitle: 'プロジェクトビデオ',
+    recommendTitle: 'おすすめのプロジェクト',
+    insightTitle: '都市生活と不動産のインサイト',
+    guideTitle: '不動産ガイドとインサイト',
+    reviewSubtitle: 'クライアントのフィードバック',
+    reviewTitle: 'お客様の声'
+  },
+  ko: {
+    videoTitle: '프로젝트 비디오',
+    recommendTitle: '추천 프로젝트',
+    insightTitle: '도시 생활 및 부동산 인사이트',
+    guideTitle: '부동산 가이드 및 인사이트',
+    reviewSubtitle: '고객 피드백',
+    reviewTitle: '고객 리뷰'
+  }
+};
+
+const contactFormTranslations: Record<Language, Record<string, string>> = {
+  th: {
+    title: 'ติดต่อตัวแทน STAYVERSE',
+    subtitle: 'ฝากข้อมูลติดต่อของคุณและที่ปรึกษาด้านอสังหาริมทรัพย์ระดับลักชัวรีของเราจะติดต่อกลับภายใน 2 ชั่วโมง',
+    fullName: 'ชื่อ - นามสกุล',
+    phone: 'เบอร์โทรศัพท์',
+    email: 'อีเมล',
+    message: 'ข้อความ / รายละเอียดที่สนใจ',
+    placeholder: 'โปรดระบุ: โครงการที่สนใจ ช่วงงบประมาณ เช่าหรือซื้อ...',
+    submitBtn: 'ส่งข้อความ'
+  },
+  en: {
+    title: 'Contact Stayverse Advisors',
+    subtitle: 'Leave your contact details and our luxury property consultants will get back to you within 2 hours.',
+    fullName: 'Full Name',
+    phone: 'Phone Number',
+    email: 'Email Address',
+    message: 'Message / Interest details',
+    placeholder: 'Please specify: Project of interest, budget range, renting or buying...',
+    submitBtn: 'Submit Enquiry'
+  },
+  ru: {
+    title: 'Свяжитесь с консультантами Stayverse',
+    subtitle: 'Оставьте свои контактные данные, и наши консультанты по элитной недвижимости свяжутся с вами в течение 2 часов.',
+    fullName: 'Полное имя',
+    phone: 'Номер телефона',
+    email: 'Адрес электронной почты',
+    message: 'Сообщение / Детали интереса',
+    placeholder: 'Пожалуйста, укажите: интересующий проект, бюджет, аренда или покупка...',
+    submitBtn: 'Отправить запрос'
+  },
+  zh: {
+    title: '联系 Stayverse 顾问',
+    subtitle: '留下您的联系方式，我们的豪宅顾问将在 2 小时内给您回复。',
+    fullName: '姓名',
+    phone: '电话号码',
+    email: '电子邮件地址',
+    message: '信息 / 兴趣详情',
+    placeholder: '请说明：感兴趣的项目、预算范围、租赁或购买...',
+    submitBtn: '提交查询'
+  },
+  ja: {
+    title: 'Stayverseアドバイザーに連絡',
+    subtitle: '連絡先を残していただければ、当社の高級不動産コンサルタントが2時間以内にご連絡いたします。',
+    fullName: '氏名',
+    phone: '電話番号',
+    email: 'メールアドレス',
+    message: 'メッセージ / 詳細',
+    placeholder: '興味のあるプロジェクト、予算範囲、賃貸か購入かなどを指定してください...',
+    submitBtn: 'お問い合わせを送信'
+  },
+  ko: {
+    title: 'Stayverse 어드바이저 문의',
+    subtitle: '연락처를 남겨주시면 럭셔리 부동산 컨설턴트가 2시간 이내에 연락드리겠습니다.',
+    fullName: '성명',
+    phone: '전화번호',
+    email: '이메일 주소',
+    message: '메시지 / 관심 세부 정보',
+    placeholder: '관심 프로젝트, 예산 범위, 임대 또는 구매 여부를 명시해 주세요...',
+    submitBtn: '문의 제출하기'
+  }
+};
+
 const transitData: Record<string, string[]> = {
   "BTS สายสีเขียวอ่อน (สายสุขุมวิท) | Light Green Line": [
     "คูคต (Khu Khot)", "แยก คปอ. (Yaek Kor Por Aor)", "พิพิธภัณฑ์กองทัพอากาศ (Royal Thai Air Force Museum)",
@@ -761,7 +1092,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-grayPalette-50 text-grayPalette-500 font-sans">
+    <div className="flex flex-col min-h-screen bg-[#f2eae1] text-grayPalette-500 font-sans">
       <div className="sticky top-0 z-50 w-full flex flex-col shadow-sm">
         
         {/* 1. TOP HEADER NAVIGATION */}
@@ -853,10 +1184,10 @@ export default function HomePage() {
 
           {/* Desktop Navigation Menu */}
           <nav className="hidden lg:flex items-center space-x-8 text-sm">
-            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">หน้าแรก</a>
-            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">เช่าออมห้อง</a>
-            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">เช่าสบายจ่ายรายเดือน</a>
-            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">ขายพร้อมผู้เช่า</a>
+            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">{mainMenuTranslations[language].home}</a>
+            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">{mainMenuTranslations[language].rentToOwn}</a>
+            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">{mainMenuTranslations[language].monthlyRent}</a>
+            <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">{mainMenuTranslations[language].sellWithTenant}</a>
 
             <div className="relative group pb-1">
               <button className="flex items-center space-x-1 text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 font-medium transition-all-custom">
@@ -946,10 +1277,10 @@ export default function HomePage() {
         {/* Mobile Navigation Menu */}
         {mobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-bluePalette-600/98 backdrop-blur-lg border-b border-white/10 text-white flex flex-col p-6 space-y-4 shadow-xl z-50">
-            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">หน้าแรก</a>
-            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">เช่าออมห้อง</a>
-            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">เช่าสบายจ่ายรายเดือน</a>
-            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">ขายพร้อมผู้เช่า</a>
+            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">{mainMenuTranslations[language].home}</a>
+            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">{mainMenuTranslations[language].rentToOwn}</a>
+            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">{mainMenuTranslations[language].monthlyRent}</a>
+            <a href="#" onClick={() => setMobileMenuOpen(false)} className="text-white hover:text-orangePalette-200 text-base font-semibold pb-2 border-b border-white/5 transition-all">{mainMenuTranslations[language].sellWithTenant}</a>
             <div className="flex flex-col space-y-3 pb-2 border-b border-white/5">
               <span className="text-white text-base font-semibold">LIFE VERSE</span>
               <div className="pl-4 flex flex-col space-y-3">
@@ -1100,13 +1431,13 @@ export default function HomePage() {
 
             {/* Brand Dropdown */}
             <div className="flex flex-col">
-              <label className="text-xs font-semibold text-grayPalette-300 uppercase tracking-wider mb-1.5">แบรนด์โครงการ</label>
+              <label className="text-xs font-semibold text-grayPalette-300 uppercase tracking-wider mb-1.5">{searchEngineTranslations[language].brandLabel}</label>
               <select
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
                 className="w-full py-2 px-3 bg-grayPalette-50 border border-grayPalette-100 rounded-xl text-sm focus:outline-none focus:border-orangePalette-200 transition-all text-grayPalette-500 font-medium"
               >
-                <option value="all">ทุกแบรนด์</option>
+                <option value="all">{searchEngineTranslations[language].allBrands}</option>
                 {developerBrands.map((b) => (
                   <option key={b} value={b}>{b}</option>
                 ))}
@@ -1177,7 +1508,7 @@ export default function HomePage() {
 
             {/* Main Line Dropdown */}
             <div className="flex flex-col">
-              <label className="text-xs font-semibold text-grayPalette-300 uppercase tracking-wider mb-1.5">รถไฟฟ้า BTS/MRT</label>
+              <label className="text-xs font-semibold text-grayPalette-300 uppercase tracking-wider mb-1.5">{searchEngineTranslations[language].transitLabel}</label>
               <select
                 value={transitLine}
                 onChange={(e) => {
@@ -1186,7 +1517,7 @@ export default function HomePage() {
                 }}
                 className="w-full py-2 px-3 bg-grayPalette-50 border border-grayPalette-100 rounded-xl text-sm focus:outline-none focus:border-orangePalette-200 transition-all text-grayPalette-500 font-medium"
               >
-                <option value="all">ทุกสาย</option>
+                <option value="all">{searchEngineTranslations[language].allLines}</option>
                 {Object.keys(transitData).map((line) => (
                   <option key={line} value={line}>{line}</option>
                 ))}
@@ -1195,14 +1526,14 @@ export default function HomePage() {
 
             {/* Sub Station Dropdown */}
             <div className="flex flex-col">
-              <label className="text-xs font-semibold text-grayPalette-300 uppercase tracking-wider mb-1.5">สถานี</label>
+              <label className="text-xs font-semibold text-grayPalette-300 uppercase tracking-wider mb-1.5">{searchEngineTranslations[language].stationLabel}</label>
               <select
                 value={station}
                 onChange={(e) => setStation(e.target.value)}
                 className="w-full py-2 px-3 bg-grayPalette-50 border border-grayPalette-100 rounded-xl text-sm focus:outline-none focus:border-orangePalette-200 transition-all text-grayPalette-500 font-medium disabled:opacity-50"
                 disabled={transitLine === 'all'}
               >
-                <option value="all">ทุกสถานี</option>
+                <option value="all">{searchEngineTranslations[language].allStations}</option>
                 {transitLine !== 'all' && transitData[transitLine]?.map((st) => (
                   <option key={st} value={st}>{st}</option>
                 ))}
@@ -1212,7 +1543,7 @@ export default function HomePage() {
             {/* Row 3 */}
             {/* Province Dropdown */}
             <div className="flex flex-col">
-              <label className="text-xs font-semibold text-grayPalette-300 uppercase tracking-wider mb-1.5">จังหวัด</label>
+              <label className="text-xs font-semibold text-grayPalette-300 uppercase tracking-wider mb-1.5">{searchEngineTranslations[language].provinceLabel}</label>
               <select
                 value={province}
                 onChange={(e) => {
@@ -1222,7 +1553,7 @@ export default function HomePage() {
                 }}
                 className="w-full py-2 px-3 bg-grayPalette-50 border border-grayPalette-100 rounded-xl text-sm focus:outline-none focus:border-orangePalette-200 transition-all text-grayPalette-500 font-medium"
               >
-                <option value="all">ทุกจังหวัด</option>
+                <option value="all">{searchEngineTranslations[language].allProvinces}</option>
                 {Object.keys(locationData).map((prov) => (
                   <option key={prov} value={prov}>{prov}</option>
                 ))}
@@ -1231,7 +1562,7 @@ export default function HomePage() {
 
             {/* District Dropdown */}
             <div className="flex flex-col">
-              <label className="text-xs font-semibold text-grayPalette-300 uppercase tracking-wider mb-1.5">อำเภอ / เขต</label>
+              <label className="text-xs font-semibold text-grayPalette-300 uppercase tracking-wider mb-1.5">{searchEngineTranslations[language].districtLabel}</label>
               <select
                 value={district}
                 onChange={(e) => {
@@ -1241,7 +1572,7 @@ export default function HomePage() {
                 className="w-full py-2 px-3 bg-grayPalette-50 border border-grayPalette-100 rounded-xl text-sm focus:outline-none focus:border-orangePalette-200 transition-all text-grayPalette-500 font-medium disabled:opacity-50"
                 disabled={province === 'all'}
               >
-                <option value="all">ทุกอำเภอ/เขต</option>
+                <option value="all">{searchEngineTranslations[language].allDistricts}</option>
                 {province !== 'all' && Object.keys(locationData[province] || {}).map((dist) => (
                   <option key={dist} value={dist}>{dist}</option>
                 ))}
@@ -1250,14 +1581,14 @@ export default function HomePage() {
 
             {/* Sub-district Dropdown */}
             <div className="flex flex-col">
-              <label className="text-xs font-semibold text-grayPalette-300 uppercase tracking-wider mb-1.5">ตำบล / แขวง</label>
+              <label className="text-xs font-semibold text-grayPalette-300 uppercase tracking-wider mb-1.5">{searchEngineTranslations[language].subDistrictLabel}</label>
               <select
                 value={subDistrict}
                 onChange={(e) => setSubDistrict(e.target.value)}
                 className="w-full py-2 px-3 bg-grayPalette-50 border border-grayPalette-100 rounded-xl text-sm focus:outline-none focus:border-orangePalette-200 transition-all text-grayPalette-500 font-medium disabled:opacity-50"
                 disabled={district === 'all'}
               >
-                <option value="all">ทุกตำบล/แขวง</option>
+                <option value="all">{searchEngineTranslations[language].allSubDistricts}</option>
                 {province !== 'all' && district !== 'all' && (locationData[province]?.[district] || []).map((sub) => (
                   <option key={sub} value={sub}>{sub}</option>
                 ))}
@@ -1317,15 +1648,15 @@ export default function HomePage() {
       </section>
 
       {/* 4.5 HI - LIGHT PROPERTIES */}
-      <section className="py-16 w-full bg-white -mt-5" id="hilight-properties">
+      <section className="py-16 w-full bg-[#f4f2ed] -mt-5" id="hilight-properties">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="flex flex-wrap justify-between items-center mb-8 gap-4">
             <div>
               <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#0c4a5e] mb-2 font-sans">
-                โครงการไฮไลท์
+                {highlightTranslations[language].title}
               </h2>
               <p className="text-grayPalette-400 text-sm mt-1 font-semibold">
-                Showing {filteredProperties.length} handpicked residences matching your lifestyle
+                {highlightTranslations[language].subtitle.replace('{count}', filteredProperties.length.toString())}
               </p>
             </div>
 
@@ -1339,8 +1670,8 @@ export default function HomePage() {
           {filteredProperties.length === 0 ? (
             <div className="bg-white border border-grayPalette-100 rounded-3xl p-12 text-center text-grayPalette-300">
               <HelpCircle className="w-12 h-12 text-grayPalette-200 mx-auto mb-4" />
-              <p className="text-lg font-semibold">No Properties Found</p>
-              <p className="text-sm mt-1">Try resetting or modifying your search parameters.</p>
+              <p className="text-lg font-semibold">{highlightTranslations[language].noFound}</p>
+              <p className="text-sm mt-1">{highlightTranslations[language].tryReset}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in">
@@ -1423,12 +1754,12 @@ export default function HomePage() {
       </section>
 
       {/* 4.6 SPONSORER POSITION VDO SECTION (PROP CHANNEL) */}
-      <section className="py-12 w-full bg-white border-t border-gray-100" id="prop-channel">
+      <section className="py-12 w-full bg-[#f2eae1] border-t border-gray-100" id="prop-channel">
         <div className="max-w-7xl mx-auto px-4 w-full">
           {/* Header Title matching Ref Image */}
           <div className="mb-4">
             <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#0c4a5e] mb-2 font-sans">
-              วิดีโอโครงการ
+              {sectionTitleTranslations[language].videoTitle}
             </h2>
           </div>
 
@@ -1495,7 +1826,7 @@ export default function HomePage() {
       </section>
 
       {/* 4.7 THUMBNAIL SLIDESHOW WIDGET */}
-      <section className="py-12 w-full bg-[#f8fafc] border-y border-gray-100" id="spotlight-properties">
+      <section className="py-12 w-full bg-[#f4f2ed] border-y border-gray-100" id="spotlight-properties">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="flex justify-between items-center mb-6">
             <div>
@@ -1622,10 +1953,10 @@ export default function HomePage() {
       </section>
 
       {/* 5. RECOMMENDED PROJECTS */}
-      <section className="py-20 bg-white" id="properties">
+      <section className="py-6 bg-[#f2eae1]" id="properties">
         <div className="max-w-7xl mx-auto px-4 w-full mb-10">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#0c4a5e] mb-6 font-sans">
-            โครงการแนะนำ
+            {sectionTitleTranslations[language].recommendTitle}
           </h2>
 
           {/* Project Tabs */}
@@ -1665,12 +1996,12 @@ export default function HomePage() {
                 <ChevronLeft className="w-6 h-6" />
               </button>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in overflow-hidden px-2 py-4">
+              <div className="flex flex-wrap justify-center gap-6 animate-fade-in overflow-hidden px-2 py-4">
                 {mockProperties.filter(p => p.tag === activeProjectTab).slice(0, 3).map((prop) => (
                   <div
                     key={prop.id}
                     onClick={() => window.open(`/project/${encodeURIComponent(prop.name)}`, '_blank')}
-                    className="bg-[#f2f4f7] overflow-hidden flex flex-col h-full border border-gray-100 shadow-sm transition-transform hover:-translate-y-1 cursor-pointer"
+                    className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] max-w-[400px] bg-[#f2f4f7] overflow-hidden flex flex-col h-full border border-gray-100 shadow-sm transition-transform hover:-translate-y-1 cursor-pointer"
                   >
                     {/* Image */}
                     <div className="relative h-64 w-full overflow-hidden bg-gray-200">
@@ -1743,9 +2074,14 @@ export default function HomePage() {
             </div>
           )}
 
-          {/* 10 Random Recommended Projects Thumbnails */}
-          <div className="mt-12 bg-grayPalette-50/50 p-6 rounded-3xl border border-gray-100">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+
+        </div>
+      </section>
+
+      {/* 10 Random Recommended Projects Thumbnails */}
+      <section>
+          <div className="py-12 mt-12 bg-[white] p-6 border border-gray-100">
+            <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 justify-items-center">
               {recommendedRandomProperties.map((prop) => {
                 const displayPrice = prop.priceBuy > 0 ? prop.priceBuy : prop.priceRent;
                 const priceLabel = prop.priceBuy > 0
@@ -1767,7 +2103,7 @@ export default function HomePage() {
                   <div
                     key={prop.id}
                     onClick={() => window.open(`/project/${encodeURIComponent(prop.name)}`, '_blank')}
-                    className="bg-white hover:bg-grayPalette-50 border border-gray-100 hover:border-orangePalette-200/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-3 flex items-center space-x-3 h-[116px] cursor-pointer"
+                    className="w-full max-w-[280px] bg-white hover:bg-grayPalette-50 border border-gray-100 hover:border-orangePalette-200/50 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-3 flex items-center space-x-3 h-[116px] cursor-pointer"
                   >
                     {/* Thumbnail Image */}
                     <div className="relative w-28 h-full shrink-0 rounded-xl overflow-hidden bg-gray-100">
@@ -1822,7 +2158,6 @@ export default function HomePage() {
               })}
             </div>
           </div>
-        </div>
       </section>
 
       {/* 7.8. GDN HORIZONTAL BANNER BARS */}
@@ -1866,9 +2201,9 @@ export default function HomePage() {
               <div className="w-12 h-12 bg-orangePalette-200/20 text-orangePalette-200 rounded-2xl flex items-center justify-center mx-auto">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="font-extrabold text-lg text-white">Curated Portfolios</h3>
+              <h3 className="font-extrabold text-lg text-white">{whyChooseUsTranslations[language].t1}</h3>
               <p className="text-sm text-grayPalette-100 font-light leading-relaxed">
-                We pre-vet all condominiums, residential properties, and land titles to ensure legal clearances and investment feasibility before listing.
+                {whyChooseUsTranslations[language].d1}
               </p>
             </div>
 
@@ -1876,9 +2211,9 @@ export default function HomePage() {
               <div className="w-12 h-12 bg-tealPalette-100/20 text-tealPalette-100 rounded-2xl flex items-center justify-center mx-auto">
                 <Landmark className="w-6 h-6" />
               </div>
-              <h3 className="font-extrabold text-lg text-white">Transit Linkage Experts</h3>
+              <h3 className="font-extrabold text-lg text-white">{whyChooseUsTranslations[language].t2}</h3>
               <p className="text-sm text-grayPalette-100 font-light leading-relaxed">
-                Specializing exclusively in properties along Bangkok’s transit lines (BTS Skytrain and MRT Underground) for ultimate convenience.
+                {whyChooseUsTranslations[language].d2}
               </p>
             </div>
 
@@ -1886,9 +2221,9 @@ export default function HomePage() {
               <div className="w-12 h-12 bg-orangePalette-200/20 text-orangePalette-200 rounded-2xl flex items-center justify-center mx-auto">
                 <Star className="w-6 h-6" />
               </div>
-              <h3 className="font-extrabold text-lg text-white">Comprehensive Care</h3>
+              <h3 className="font-extrabold text-lg text-white">{whyChooseUsTranslations[language].t3}</h3>
               <p className="text-sm text-grayPalette-100 font-light leading-relaxed">
-                From initial search and property financing to tenancy management and transfer registration, our experts manage every single step.
+                {whyChooseUsTranslations[language].d3}
               </p>
             </div>
           </div>
@@ -1945,7 +2280,7 @@ export default function HomePage() {
           <div className="mb-8">
             <span className="text-xs font-bold uppercase tracking-wider text-orangePalette-200">LIFEVERSE</span>
             <h2 className="text-2xl md:text-3xl font-extrabold text-[#0c4a5e] font-sans tracking-wide mt-1">
-              {language === 'th' ? 'อัปเดตเทรนด์การอยู่อาศัยและการลงทุน' : 'Urban Living & Real Estate Insights'}
+              {sectionTitleTranslations[language].insightTitle}
             </h2>
           </div>
 
@@ -2113,7 +2448,7 @@ export default function HomePage() {
           <div className="mb-8">
             <span className="text-xs font-bold uppercase tracking-wider text-orangePalette-200">GUIDEVERSE</span>
             <h2 className="text-2xl md:text-3xl font-extrabold text-[#0c4a5e] font-sans tracking-wide mt-1">
-              {language === 'th' ? 'แนะนำและสาระน่ารู้เกี่ยวกับอสังหาริมทรัพย์' : 'Real Estate Guides & Insights'}
+              {sectionTitleTranslations[language].guideTitle}
             </h2>
           </div>
 
@@ -2226,13 +2561,13 @@ export default function HomePage() {
               </div>
 
               {/* Yellow Box Area: Testimonials block with dark background */}
-              <div className="bg-[#18181b] rounded-3xl p-6 md:p-8 border border-white/5 shadow-2xl flex flex-col space-y-6">
+              <div className="bg-[#154e5c] rounded-3xl p-6 md:p-8 border border-white/5 shadow-2xl flex flex-col space-y-6">
                 <div>
                   <span className="text-[10px] font-bold uppercase tracking-wider text-orangePalette-200">
-                    {language === 'th' ? 'ความเห็นจากลูกค้า' : 'Client Feedback'}
+                    {sectionTitleTranslations[language].reviewSubtitle}
                   </span>
                   <h3 className="text-xl md:text-2xl font-extrabold text-white font-sans mt-1">
-                    รีวิวจากลูกค้า
+                    {sectionTitleTranslations[language].reviewTitle}
                   </h3>
                 </div>
 
@@ -2859,34 +3194,34 @@ export default function HomePage() {
       <section className="py-16 max-w-3xl mx-auto px-4 w-full text-grayPalette-500" id="contact">
         <div className="bg-white rounded-3xl p-6 md:p-8 border border-grayPalette-100 shadow-xl space-y-6">
           <div className="text-center">
-            <h3 className="text-2xl font-extrabold text-grayPalette-600 font-sans uppercase tracking-wider">Contact Stayverse Advisors</h3>
-            <p className="text-sm text-gray-400 mt-1.5">Leave your contact details and our luxury property consultants will get back to you within 2 hours.</p>
+            <h3 className="text-2xl font-extrabold text-grayPalette-600 font-sans uppercase tracking-wider">{contactFormTranslations[language].title}</h3>
+            <p className="text-sm text-gray-400 mt-1.5">{contactFormTranslations[language].subtitle}</p>
           </div>
 
           <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex flex-col">
-                <label className="text-xs font-semibold text-gray-400 mb-1">Full Name</label>
+                <label className="text-xs font-semibold text-gray-400 mb-1">{contactFormTranslations[language].fullName}</label>
                 <input type="text" className="px-3 py-2 bg-grayPalette-50 border border-grayPalette-100 rounded-xl text-sm focus:outline-none focus:border-orangePalette-200" required />
               </div>
               <div className="flex flex-col">
-                <label className="text-xs font-semibold text-gray-400 mb-1">Phone Number</label>
+                <label className="text-xs font-semibold text-gray-400 mb-1">{contactFormTranslations[language].phone}</label>
                 <input type="tel" className="px-3 py-2 bg-grayPalette-50 border border-grayPalette-100 rounded-xl text-sm focus:outline-none focus:border-orangePalette-200" required />
               </div>
             </div>
 
             <div className="flex flex-col">
-              <label className="text-xs font-semibold text-gray-400 mb-1">Email Address</label>
+              <label className="text-xs font-semibold text-gray-400 mb-1">{contactFormTranslations[language].email}</label>
               <input type="email" className="px-3 py-2 bg-grayPalette-50 border border-grayPalette-100 rounded-xl text-sm focus:outline-none focus:border-orangePalette-200" required />
             </div>
 
             <div className="flex flex-col">
-              <label className="text-xs font-semibold text-gray-400 mb-1">Message / Interest details</label>
-              <textarea rows={4} className="px-3 py-2 bg-grayPalette-50 border border-grayPalette-100 rounded-xl text-sm focus:outline-none focus:border-orangePalette-200" placeholder="Please specify: Project of interest, budget range, renting or buying..." required></textarea>
+              <label className="text-xs font-semibold text-gray-400 mb-1">{contactFormTranslations[language].message}</label>
+              <textarea rows={4} className="px-3 py-2 bg-grayPalette-50 border border-grayPalette-100 rounded-xl text-sm focus:outline-none focus:border-orangePalette-200" placeholder={contactFormTranslations[language].placeholder} required></textarea>
             </div>
 
             <button type="submit" className="w-full py-3 bg-orangePalette-200 hover:bg-orangePalette-300 text-white font-bold rounded-xl text-sm uppercase tracking-wider shadow-lg shadow-orangePalette-200/20 transition-all duration-300 cursor-pointer">
-              Submit Enquiry
+              {contactFormTranslations[language].submitBtn}
             </button>
           </form>
         </div>
