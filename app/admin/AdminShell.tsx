@@ -650,7 +650,7 @@ export const AdminShell: React.FC<AdminShellProps> = ({
     }
   };
 
-  const tAdmin = adminTranslations[language] || adminTranslations.en;
+  const tAdmin = (adminTranslations as Record<string, any>)[language] || adminTranslations.en;
 
   if (!isMounted) {
     return (
