@@ -93,12 +93,14 @@ body {
 .text-gradient {
   background: linear-gradient(135deg, #CF7536 0%, #A15A28 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .text-gradient-teal {
   background: linear-gradient(135deg, #47C2DB 0%, #287686 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
