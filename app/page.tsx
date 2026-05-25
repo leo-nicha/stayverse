@@ -753,58 +753,7 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-grayPalette-50 text-grayPalette-500 font-sans">
-      {/* 1. TOP HEADER CONTACT INFO (Dark Slate Blue) */}
-      <div className="bg-bluePalette-600 text-white py-2 border-b border-white/10 transition-all">
-        <div className="max-w-7xl mx-auto px-4 flex flex-wrap justify-between items-center gap-2 text-xs md:text-sm">
-          <div className="flex items-center space-x-6">
-            <a href="mailto:info@stayverse.com" className="flex items-center space-x-2 text-grayPalette-100 hover:text-orangePalette-100 transition-all-custom">
-              <Mail className="w-4 h-4 text-orangePalette-200" />
-              <span>info@stayverse.com</span>
-            </a>
-            <a href="tel:+6620562333" className="flex items-center space-x-2 text-grayPalette-100 hover:text-orangePalette-100 transition-all-custom">
-              <Phone className="w-4 h-4 text-orangePalette-200" />
-              <span>+66 2 056 2333</span>
-            </a>
-          </div>
-
-          <div className="flex items-center space-x-4">
-            {/* Lang Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setLangMenuOpen(!langMenuOpen)}
-                className="flex items-center space-x-2 px-3 py-1 bg-white/5 hover:bg-white/10 rounded-md border border-white/10 text-xs transition-all cursor-pointer"
-              >
-                <span>{languageFlags[language]}</span>
-                <span className="font-medium uppercase">{language}</span>
-                <ChevronDown className="w-3.5 h-3.5 text-orangePalette-200" />
-              </button>
-
-              {langMenuOpen && (
-                <div className="absolute right-0 mt-1 w-36 bg-grayPalette-600 border border-white/10 rounded-lg shadow-xl z-50 overflow-hidden animate-fade-in">
-                  {(Object.keys(languageFlags) as Language[]).map((lang) => (
-                    <button
-                      key={lang}
-                      onClick={() => {
-                        setLanguage(lang);
-                        setLangMenuOpen(false);
-                      }}
-                      className={`w-full text-left px-3 py-2 text-xs flex items-center space-x-2 hover:bg-orangePalette-200/20 hover:text-white transition-all-custom ${language === lang ? 'bg-orangePalette-200/10 text-orangePalette-200 font-semibold' : 'text-grayPalette-100'}`}
-                    >
-                      <span>{languageFlags[lang]}</span>
-                      <span>{languageNames[lang]}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Quick action buttons */}
-            <a href="#contact" className="hidden md:inline-block bg-orangePalette-200 hover:bg-orangePalette-300 text-white px-3 py-1 rounded text-xs font-semibold uppercase tracking-wider transition-all-custom">
-              {t.postProperty}
-            </a>
-          </div>
-        </div>
-      </div>
+      
 
       {/* 2. MAIN HEADER NAVIGATION (Transparent Glass) */}
       <header className="sticky top-0 z-40 bg-[#f4f1eb] backdrop-blur-md border-b border-white/5 transition-all py-4">
@@ -850,6 +799,9 @@ export default function HomePage() {
             >
               <Menu className="w-5 h-5 text-orangePalette-200" />
             </button>
+            <a href="/login" className="text-[#306473] hover:text-orangePalette-200 font-bold text-xs uppercase transition-all-custom px-3 py-2 border border-[#306473]/25 hover:border-orangePalette-200 rounded-full">
+              {language === 'th' ? 'เข้าสู่ระบบ' : 'Login'}
+            </a>
             <a href="#contact" className="bg-white hover:bg-orangePalette-100 text-bluePalette-600 px-4 py-2 rounded-full text-xs font-bold uppercase transition-all-custom">
               {t.sendEnquiry}
             </a>
@@ -923,13 +875,16 @@ export default function HomePage() {
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4 pt-4">
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="bg-orangePalette-200 hover:bg-orangePalette-300 text-white text-center py-2.5 rounded font-semibold text-sm transition-all">
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="bg-orangePalette-200 hover:bg-orangePalette-300 text-white text-center py-2.5 rounded font-semibold text-sm transition-all animate-pulse">
                 {t.postProperty}
               </a>
               <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="bg-white text-bluePalette-600 text-center py-2.5 rounded font-semibold text-sm transition-all">
                 {t.sendEnquiry}
               </a>
             </div>
+            <a href="/login" onClick={() => setMobileMenuOpen(false)} className="w-full mt-3 block bg-orangePalette-200 hover:bg-orangePalette-300 text-white text-center py-2.5 rounded font-semibold text-sm transition-all">
+              {language === 'th' ? 'เข้าสู่ระบบ / Login' : 'Sign In / Login'}
+            </a>
           </div>
         )}
       </header>
