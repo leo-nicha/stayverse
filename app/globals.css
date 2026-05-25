@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "@heroui/styles";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700;800&display=swap');
 
 @theme {
   --color-tealPalette-50: #90E6F9;
@@ -53,7 +54,6 @@
   --font-sans: 'Sarabun', 'Inter', 'Outfit', sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700;800&display=swap');
 
 /* Webkit scrollbar customized for luxury look */
 ::-webkit-scrollbar-track {
