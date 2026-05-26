@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { AdminShell, generateMockListings, Listing } from '../AdminShell';
 import { Plus, Download, Search, RefreshCcw, Filter, CheckCircle, XCircle, Edit, Trash2, FolderOpen, Eye, Image as ImageIcon } from 'lucide-react';
 import { useTranslation } from '@/context/LanguageContext';
+import { transitData } from '@/utils/transitData';
 
 function PostListContent() {
   const router = useRouter();
@@ -15,6 +16,7 @@ function PostListContent() {
   const [listings, setListings] = useState<Listing[]>([]);
   const [activeTab, setActiveTab] = useState<string>('allListings');
   const [showFilters, setShowFilters] = useState<boolean>(true);
+  const [selectedLine, setSelectedLine] = useState<string>('all');
 
   const action = searchParams.get('action');
   const webStatus = searchParams.get('web_status');
@@ -166,7 +168,10 @@ function PostListContent() {
             </div>
 
             <div className="flex items-center gap-3 w-full xl:w-auto">
-              <button className="bg-[#6F42C1] hover:bg-[#5A32A3] text-white px-5 py-2 rounded-md flex items-center justify-center gap-2 text-[13px] font-medium transition-colors whitespace-nowrap">
+              <button 
+                onClick={() => router.push('/admin/post_list/new')}
+                className="bg-[#6F42C1] hover:bg-[#5A32A3] text-white px-5 py-2 rounded-md flex items-center justify-center gap-2 text-[13px] font-medium transition-colors whitespace-nowrap"
+              >
                 <Plus className="w-4 h-4" />
                 {isTh ? 'Add new' : 'Add new'}
               </button>
@@ -211,44 +216,77 @@ function PostListContent() {
 
             {showFilters && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-5">
-                {/* โครงการ */}
+                {/* Row 1 */}
                 <div className="space-y-1.5">
                   <label className="text-[12px] font-medium text-gray-600">{isTh ? 'โครงการ' : 'Project'}</label>
                   <select className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] bg-white text-gray-700">
                     <option>เลือกโครงการ</option>
                   </select>
                 </div>
-                {/* ประเภทอสังหา */}
                 <div className="space-y-1.5">
                   <label className="text-[12px] font-medium text-gray-600">{isTh ? 'ประเภทอสังหา' : 'Property Type'}</label>
                   <select className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] bg-white text-gray-700">
                     <option>ประเภทอสังหา</option>
                   </select>
                 </div>
-                {/* ทำเล */}
                 <div className="space-y-1.5">
                   <label className="text-[12px] font-medium text-gray-600">{isTh ? 'ทำเล' : 'Location'}</label>
                   <select className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] bg-white text-gray-700">
                     <option>ทำเล</option>
                   </select>
                 </div>
-                {/* MRT/BTS */}
                 <div className="space-y-1.5">
-                  <label className="text-[12px] font-medium text-gray-600">MRT/BTS</label>
+                  <label className="text-[12px] font-medium text-gray-600">{isTh ? 'เรียงลำดับ' : 'Sort by'}</label>
                   <select className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] bg-white text-gray-700">
-                    <option>MRT/BTS (All)</option>
+                    <option>Sort by (เรียงลำดับ)</option>
                   </select>
                 </div>
-                
-                {/* ช่วงราคา */}
+
+                {/* Row 2 */}
                 <div className="space-y-1.5">
-                  <label className="text-[12px] font-medium text-gray-600">{isTh ? 'ช่วงราคา' : 'Price Range'}</label>
-                  <div className="flex items-center gap-2">
-                    <input type="text" placeholder={isTh ? 'ราคาต่ำสุด' : 'Min Price'} className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1]" />
-                    <input type="text" placeholder={isTh ? 'ราคาสูงสุด' : 'Max Price'} className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1]" />
-                  </div>
+                  <label className="text-[12px] font-medium text-gray-600">MRT/BTS</label>
+                  <select 
+                    value={selectedLine}
+                    onChange={(e) => setSelectedLine(e.target.value)}
+                    className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] bg-white text-gray-700"
+                  >
+                    <option value="all">MRT/BTS (All)</option>
+                    {Object.keys(transitData).map((line) => (
+                      <option key={line} value={line}>{line}</option>
+                    ))}
+                  </select>
                 </div>
-                {/* สถานะ */}
+                <div className="space-y-1.5">
+                  <label className="text-[12px] font-medium text-gray-600">{isTh ? 'สถานี' : 'Station'}</label>
+                  <select className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] bg-white text-gray-700">
+                    <option value="all">{isTh ? 'ทุกสถานี' : 'All Stations'}</option>
+                    {selectedLine !== 'all' && transitData[selectedLine]?.map((station) => (
+                      <option key={station} value={station}>{station}</option>
+                    ))}
+                  </select>
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[12px] font-medium text-gray-600">{isTh ? 'ประเภทห้อง' : 'Room Type'}</label>
+                  <select className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] bg-white text-gray-700">
+                    <option>จำนวนห้องนอน</option>
+                  </select>
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[12px] font-medium text-gray-600">{isTh ? 'ชั้น' : 'Floor'}</label>
+                  <select className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] bg-white text-gray-700">
+                    <option>ชั้น</option>
+                  </select>
+                </div>
+
+                {/* Row 3 */}
+                <div className="space-y-1.5">
+                  <label className="text-[12px] font-medium text-gray-600">{isTh ? 'ช่วงราคา (ต่ำสุด)' : 'Min Price'}</label>
+                  <input type="text" placeholder={isTh ? 'ราคาต่ำสุด' : 'Min Price'} className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1]" />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[12px] font-medium text-gray-600">{isTh ? 'ช่วงราคา (สูงสุด)' : 'Max Price'}</label>
+                  <input type="text" placeholder={isTh ? 'ราคาสูงสุด' : 'Max Price'} className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1]" />
+                </div>
                 <div className="space-y-1.5">
                   <label className="text-[12px] font-medium text-gray-600">{isTh ? 'สถานะ' : 'Status'}</label>
                   <select 
@@ -278,38 +316,34 @@ function PostListContent() {
                     <option value="none">Please select</option>
                   </select>
                 </div>
-                {/* สถานะขายแล้ว/เช่าแล้ว */}
                 <div className="space-y-1.5">
                   <label className="text-[12px] font-medium text-gray-600">{isTh ? 'สถานะขายแล้ว/เช่าแล้ว' : 'Sold/Rent Status'}</label>
                   <select className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] bg-white text-gray-700">
                     <option>All (ทั้งหมด)</option>
                   </select>
                 </div>
-                {/* ประเภท */}
+
+                {/* Row 4 */}
                 <div className="space-y-1.5">
                   <label className="text-[12px] font-medium text-gray-600">{isTh ? 'ประเภท' : 'Type'}</label>
                   <select className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] bg-white text-gray-700">
                     <option>All (ทั้งหมด)</option>
                   </select>
                 </div>
-
-                {/* วันที่สร้าง */}
-                <div className="space-y-1.5">
-                  <label className="text-[12px] font-medium text-gray-600">{isTh ? 'วันที่สร้าง' : 'Created Date'}</label>
-                  <input type="text" placeholder={isTh ? 'เลือกวันที่ต้องการค้นหา' : 'Select date'} className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1]" />
-                </div>
-                {/* ชั้น */}
-                <div className="space-y-1.5">
-                  <label className="text-[12px] font-medium text-gray-600">{isTh ? 'ชั้น' : 'Floor'}</label>
-                  <select className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] bg-white text-gray-700">
-                    <option>ชั้น</option>
-                  </select>
-                </div>
-                {/* แท็ก */}
                 <div className="space-y-1.5">
                   <label className="text-[12px] font-medium text-gray-600">{isTh ? 'แท็ก' : 'Tag'}</label>
                   <select className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] bg-white text-gray-700">
                     <option>Tag (แท็ก)</option>
+                  </select>
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[12px] font-medium text-gray-600">{isTh ? 'วันที่สร้าง' : 'Created Date'}</label>
+                  <input type="date" className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] text-gray-700" />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="text-[12px] font-medium text-gray-600">{isTh ? 'ผู้สร้าง' : 'Creator'}</label>
+                  <select className="w-full border border-gray-300 px-3 py-2 rounded-md text-[13px] focus:outline-none focus:border-[#6F42C1] bg-white text-gray-700">
+                    <option>Please select</option>
                   </select>
                 </div>
               </div>

@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { locationData } from '@/utils/mockLocationData';
 import { mockProperties } from '@/utils/mockProperties';
+import { transitData } from '@/utils/transitData';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Luxury Promotion Slides
@@ -38,7 +39,7 @@ const bannerSlides = [
     id: 4,
     title: 'Culture Thonglor',
     subtitle: 'Co-create Your Lifestyle in Bangkok’s Most Vibrant Area',
-    imageUrl: 'https://images.unsplash.com/photo-1600607687931-cebf12f45cc3?w=1600&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=1600&q=80',
     link: '#',
   },
   {
@@ -292,37 +293,37 @@ const searchEngineTranslations: Record<Language, Record<string, string>> = {
 const highlightTranslations: Record<Language, Record<string, string>> = {
   th: {
     title: 'โครงการไฮไลท์',
-    subtitle: 'แสดง {count} โครงการคุณภาพที่ตรงกับไลฟ์สไตล์ของคุณ',
+    subtitle: 'แสดงโครงการคุณภาพที่ตรงกับไลฟ์สไตล์ของคุณ',
     noFound: 'ไม่พบโครงการ',
     tryReset: 'ลองรีเซ็ตหรือปรับเปลี่ยนพารามิเตอร์การค้นหาของคุณ'
   },
   en: {
     title: 'Highlight Projects',
-    subtitle: 'Showing {count} handpicked residences matching your lifestyle',
+    subtitle: 'Showing handpicked residences matching your lifestyle',
     noFound: 'No Properties Found',
     tryReset: 'Try resetting or modifying your search parameters.'
   },
   ru: {
     title: 'Избранные проекты',
-    subtitle: 'Показано {count} отборных резиденций, подходящих под ваш стиль жизни',
+    subtitle: 'Показано отобранных резиденций, подходящих под ваш стиль жизни',
     noFound: 'Объекты не найдены',
     tryReset: 'Попробуйте сбросить или изменить параметры поиска.'
   },
   zh: {
     title: '精选项目',
-    subtitle: '显示 {count} 个符合您生活方式的精选住宅',
+    subtitle: 'แสดงโครงการคุณภาพที่ตรงกับไลฟ์สไตล์ของคุณ',
     noFound: '未找到房源',
     tryReset: '尝试重置或修改您的搜索参数。'
   },
   ja: {
     title: 'ハイライトプロジェクト',
-    subtitle: 'あなたのライフスタイルに合う厳選された{count}件の住宅を表示中',
+    subtitle: 'あなたのライフスタイルに合う厳選された物件をご紹介',
     noFound: '物件が見つかりません',
     tryReset: '検索パラメータをリセットまたは変更してみてください。'
   },
   ko: {
     title: '추천 프로젝트',
-    subtitle: '귀하의 라이프스타일에 맞는 {count}개의 엄선된 레지던스를 표시합니다.',
+    subtitle: '라이프스타일에 맞는 엄선된 레지던스를 소개합니다.',
     noFound: '매물을 찾을 수 없습니다',
     tryReset: '검색 매개변수를 재설정하거나 수정해 보세요.'
   }
@@ -442,92 +443,7 @@ const contactFormTranslations: Record<Language, Record<string, string>> = {
   }
 };
 
-const transitData: Record<string, string[]> = {
-  "BTS สายสีเขียวอ่อน (สายสุขุมวิท) | Light Green Line": [
-    "คูคต (Khu Khot)", "แยก คปอ. (Yaek Kor Por Aor)", "พิพิธภัณฑ์กองทัพอากาศ (Royal Thai Air Force Museum)",
-    "โรงพยาบาลภูมิพลอดุลยเดช (Bhumibol Adulyadej Hospital)", "สะพานใหม่ (Saphan Mai)", "สายหยุด (Sai Yud)",
-    "พหลโยธิน 59 (Phahon Yothin 59)", "วัดพระศรีมหาธาตุ (Wat Phra Sri Mahathat)", "กรมทหารราบที่ 11 (11th Infantry Regiment)",
-    "บางบัว (Bang Bua)", "กรมป่าไม้ (Royal Forest Department)", "มหาวิทยาลัยเกษตรศาสตร์ (Kasetsart University)",
-    "เสนานิคม (Sena Nikhom)", "รัชโยธิน (Ratchayothin)", "พหลโยธิน 24 (Phahon Yothin 24)", "ห้าแยกลาดพร้าว (Ha Yaek Lat Phrao)",
-    "หมอชิต (Mo Chit)", "สะพานควาย (Saphan Khwai)", "อารีย์ (Ari)", "สนามเป้า (Sanam Pao)", "อนุสาวรีย์ชัยสมรภูมิ (Victory Monument)",
-    "พญาไท (Phaya Thai)", "ราชเทวี (Ratchathewi)", "สยาม (Siam)", "ชิดลม (Chit Lom)", "เพลินจิต (Phloen Chit)", "นานา (Nana)",
-    "อโศก (Asok)", "พร้อมพงษ์ (Phrom Phong)", "ทองหล่อ (Thong Lo)", "เอกมัย (Ekkamai)", "พระโขนง (Phra Khanong)",
-    "อ่อนนุช (On Nut)", "บางจาก (Bang Chak)", "ปุณณวิถี (Punnawithi)", "อุดมสุข (Udom Suk)", "บางนา (Bang Na)",
-    "แบริ่ง (Bearing)", "สำโรง (Samrong)", "ปู่เจ้า (Pu Chao)", "ช้างเอราวัณ (Chang Erawan)", "โรงเรียนนายเรือ (Naval Academy)",
-    "ปากน้ำ (Pak Nam)", "ศรีนครินทร์ (Srinakarin)", "แพรกษา (Phraek Sa)", "สายลวด (Sai Luat)", "เคหะฯ (Kheha)",
-    "เมืองโบราณ (Ancient City)", "บางปู (Bang Pu)", "ตำหรุ (Tamru)"
-  ],
-  "BTS สีเขียวเข้ม (สายสีลม) | Green Line (Silom Line)": [
-    "สนามกีฬาแห่งชาติ (National Stadium)", "สยาม (Siam)", "ราชดำริ (Ratchadamri)", "ศาลาแดง (Sala Daeng)",
-    "ช่องนนทรี (Chong Nonsi)", "เซนต์หลุยส์ (Saint Louis)", "สุรศักดิ์ (Surasak)", "สะพานตากสิน (Saphan Taksin)",
-    "กรุงธนบุรี (Krung Thon Buri)", "วงเวียนใหญ่ (Wongwian Yai)", "โพธิ์นิมิตร (Pho Nimit)", "ตลาดพลู (Talat Phlu)",
-    "วุฒากาศ (Wutthakat)", "บางหว้า (Bang Wa)"
-  ],
-  "MRT สายสีน้ำเงิน | Blue Line": [
-    "ท่าพระ (Tha Phra)", "จรัญฯ 13 (Charan 13)", "ไฟฉาย (Fai Chai)", "บางขุนนนท์ (Bang Khun Non)", "บางยี่ขัน (Bang Yi Khan)",
-    "สิรินธร (Sirindhorn)", "บางพลัด (Bang Phlat)", "บางอ้อ (Bang O)", "บางโพ (Bang Pho)", "เตาปูน (Tao Poon)",
-    "บางซื่อ (Bang Sue)", "กำแพงเพชร (Kamphaeng Phet)", "สวนจตุจักร (Chatuchak Park)", "พหลโยธิน (Phahon Yothin)",
-    "ลาดพร้าว (Lat Phrao)", "รัชดาภิเษก (Ratchadaphisek)", "สุทธิสาร (Sutthisan)", "ห้วยขวาง (Huai Khwang)",
-    "ศูนย์วัฒนธรรมแห่งประเทศไทย (Thailand Cultural Centre)", "พระราม 9 (Phra Ram 9)", "เพชรบุรี (Phetchaburi)",
-    "สุขุมวิท (Sukhumvit)", "ศูนย์การประชุมแห่งชาติสิริกิติ์ (Queen Sirikit National Convention Centre)",
-    "คลองเตย (Khlong Toei)", "ลุมพินี (Lumphini)", "สีลม (Si Lom)", "สามย่าน (Sam Yan)", "หัวลำโพง (Hua Lamphong)",
-    "วัดมังกร (Wat Mangkon)", "สามยอด (Sam Yot)", "สนามไชย (Sanam Chai)", "อิสรภาพ (Itsaraphap)",
-    "พาณิชยการธนบุรี (Phanitsayakarn Thonburi)", "บางไผ่ (Bang Phai)",
-    "บางหว้า (Bang Wa)", "เพชรเกษม 48 (Phetkasem 48)", "ภาษีเจริญ (Phasi Charoen)", "บางแค (Bang Kae)",
-    "หลักสอง (Lak Song)", "พุทธมณฑล สาย 2 (Phutthamonthon Sai 2)", "พุทธมณฑล สาย 3 (Phutthamonthon Sai 3)",
-    "พุทธมณฑล สาย 4 (Phutthamonthon Sai 4)"
-  ],
-  "MRT สายสีม่วง | Purple Line": [
-    "คลองบางไผ่ (Khlong Bang Phai)", "ตลาดบางใหญ่ (Talad Bang Yai)", "สามแยกบางใหญ่ (Sam Yaek Bang Yai)",
-    "บางพลู (Bang Phlu)", "บางรักใหญ่ (Bang Rak Yai)", "บางรักน้อยท่าอิฐ (Bang Rak Noi Tha It)", "ไทรม้า (Sai Ma)",
-    "สะพานพระนั่งเกล้า (Phra Nang Klao Bridge)", "แยกนนทบุรี 1 (Yaek Nonthaburi 1)", "บางกระสอ (Bang Krasor)",
-    "ศูนย์ราชการนนทบุรี (Nonthaburi Civic Center)", "กระทรวงสาธารณสุข (Ministry of Public Health)",
-    "แยกติวานนท์ (Yaek Tiwanon)", "วงศ์สว่าง (Wong Sawang)", "บางซ่อน (Bang Son)", "เตาปูน (Tao Poon)",
-    "รัฐสภา (Parliament House)", "ศรีย่าน (Sri Yan)", "วชิรพยาบาล (Vajira Hospital)", "หอสมุดแห่งชาติ (National Library)",
-    "บางขุนพรหม (Bang Khun Phrom)", "ผ่านฟ้า (Phan Fa)", "สามยอด (Sam Yot)", "สะพานพุทธ (Memorial Bridge)",
-    "วงเวียนใหญ่ (Wongwian Yai)", "สำเหร่ (Samre)", "ดาวคะนอง (Dao Khanong)", "บางปะแก้ว (Bang Pakaeo)",
-    "บางปะกอก (Bang Pakok)", "แยกประชาอุทิศ (Yaek Pracha Uthit)", "ราษฎร์บูรณะ (Rat Burana)", "พระประแดง (Phra Pradaeng)",
-    "ครุใน (Khru Nai)"
-  ],
-  "MRT สายสีชมพู | Pink Line": [
-    "ศูนย์ราชการนนทบุรี (Nonthaburi Civic Center)", "แคราย (Khae Rai)", "สนามบินน้ำ (Sanambin Nam)", "สามัคคี (Samakkhie)",
-    "กรมชลประทาน (Royal Irrigation Department)", "แยกปากเกร็ด (Yaek Pak Kret)", "เลี่ยงเมืองปากเกร็ด (Pak Kret Bypass)",
-    "แจ้งวัฒนะ-ปากเกร็ด 28 (Chaeng Watthana - Pak Kret 28)", "เมืองทองธานี (Muang Thong Thani)", "ศรีรัช (Si Rat)",
-    "แจ้งวัฒนะ 14 (Chaeng Watthana 14)", "ศูนย์ราชการเฉลิมพระเกียรติ (Government Complex)", "โทรคมนาคมแห่งชาติ (National Telecom)",
-    "หลักสี่ (Lak Si)", "ราชภัฏพระนคร (Rajabhat Phranakhon)", "วัดพระศรีมหาธาตุ (Wat Phra Sri Mahathat)",
-    "รามอินทรา 3 (Ram Inthra 3)", "ลาดปลาเค้า (Lat Pla Khao)", "รามอินทรา กม. 4 (Ram Inthra Kor Mor 4)",
-    "มัยลาภ (Maiyalap)", "วัชรพล (Vatcharaphol)", "รามอินทรา กม. 6 (Ram Inthra Kor Mor 6)", "คู้บอน (Khu Bon)",
-    "รามอินทรา กม. 9 (Ram Inthra Kor Mor 9)", "วงแหวนรามอินทรา (Outer Ring Road - Ram Inthra)", "นพรัตน์ (Nopparat)",
-    "บางชัน (Bang Chan)", "เศรษฐบุตรบำเพ็ญ (Setthabutbamphen)", "ตลาดมีนบุรี (Min Buri Market)", "มีนบุรี (Min Buri)",
-    "อิมแพ็คเมืองทองธานี (Impact Muang Thong Thani)", "ทะเลสาบเมืองทองธานี (Muang Thong Thani Lake)"
-  ],
-  "MRT สายสีเหลือง | Yellow Line": [
-    "ลาดพร้าว (Lat Phrao)", "ภาวนา (Phawana)", "โชคชัย 4 (Chok Chai 4)", "ลาดพร้าว 71 (Lat Phrao 71)",
-    "ลาดพร้าว 87 (Lat Phrao 87)", "มหาดไทย (Mahat Thai)", "ลาดพร้าว 101 (Lat Phrao 101)", "บางกะปิ (Bang Kapi)",
-    "แยกลำสาลี (Yaek Lam Sali)", "ศรีกรีฑา (Si Kritha)", "พัฒนาการ (Phatthanakan)", "กลันตัน (Kalantan)",
-    "ศรีนุช (Si Nut)", "ศรีนครินทร์ 38 (Srinagarindra 38)", "สวนหลวง ร.9 (Suan Luang Rama IX)", "ศรีอุดม (Si Udom)",
-    "ศรีเอี่ยม (Si Iam)", "ศรีลาซาล (Si La Salle)", "ศรีแบริ่ง (Si Bearing)", "ศรีด่าน (Si Dan)", "ศรีเทพา (Si Thepha)",
-    "ทิพวัล (Thipphawan)", "สำโรง (Samrong)"
-  ],
-  "SRT สายสีแดง | Red Line Commuter Train": [
-    "กรุงเทพอภิวัฒน์ (Krung Thep Aphiwat)", "จตุจักร (Chatuchak)", "วัดเสมียนนารี (Wat Samian Nari)", "บางเขน (Bang Khen)",
-    "ทุ่งสองห้อง (Thung Song Hong)", "หลักสี่ (Lak Si)", "การเคหะ (Kan Kheha)", "ดอนเมือง (Don Muang)", "หลักหก (Lak Hok)",
-    "รังสิต (Rangsit)", "คลองหนึ่ง (Khlong Neung)", "มหาวิทยาลัยกรุงเทพ-รังสิต (Bangkok University-Rangsit)",
-    "เชียงราก (Chiang Rak)", "มหาวิทยาลัยธรรมศาสตร์-รังสิต (Thammasat University-Rangsit)"
-  ],
-  "SRT สายสีแดงอ่อน - ทิศตะวันตก": [
-    "กรุงเทพอภิวัฒน์ (Krung Thep Aphiwat)", "บางซ่อน (Bang Son)", "สะพานพระราม 6 (Rama VI Bridge)",
-    "บางกรวย-กฟผ. (Bang Kruai-EGAT)", "บางบำหรุ (Bang Bamru)", "ตลิ่งชัน (Taling Chan)", "บ้านฉิมพลี (Baan Chimpli)",
-    "กาญจนาภิเษก (Kanchanaphisek)", "ศาลายา (Salaya)"
-  ],
-  "ARL แอร์พอร์ต เรล ลิงก์ | Airport Rail Link": [
-    "พญาไท (Phaya Thai)", "ราชปรารภ (Ratchaprarop)", "มักกะสัน (Makkasan)", "รามคำแหง (Ramkhamhaeng)", "หัวหมาก (Hua Mak)",
-    "บ้านทับช้าง (Ban Thap Chang)", "ลาดกระบัง (Lat Krabang)", "สุวรรณภูมิ (Suvarnabhumi)"
-  ],
-  "BTS สายสีทอง | Gold Line": [
-    "กรุงธนบุรี (Krung Thon Buri)", "เจริญนคร (Charoen Nakhon)", "คลองสาน (Khlong San)", "ประชาธิปก (Prajadhipok)"
-  ]
-};
+
 
 const developerBrands = [
   "เอพี ไทยแลนด์ (AP Thailand)",
@@ -630,12 +546,12 @@ const lifeVerseArticles = [
   {
     id: 'main',
     title: {
-      th: 'ถ้าผู้ป่วยอัลไซเมอร์อยู่ในคอนโด นิติบุคคล กรรมการคอนโด รปภ. ลูกบ้าน และรัฐต้องรับมืออย่างไรในสังคมสูงวัย',
-      en: 'If Alzheimer patients live in condos, how should juristic persons, board members, guards, residents, and the state respond in an aging society?'
+      th: 'บทความทดสอบ',
+      en: 'Test Articles'
     },
     snippet: {
-      th: 'เจาะลึกแนวทางปฏิบัติสำหรับโครงการที่พักอาศัย เมื่อประเทศไทยก้าวเข้าสู่สังคมสูงวัยอย่างสมบูรณ์แบบและการอยู่ร่วมกันอย่างปลอดภัย',
-      en: 'In-depth guidelines for residential projects as Thailand fully transitions into an aging society and how to live together safely.'
+      th: 'บทความทดสอบ',
+      en: 'Test Articles'
     },
     imageUrl: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1200&q=80',
     date: '22 May 2026',
@@ -647,8 +563,8 @@ const lifeVerseArticles = [
   {
     id: 1,
     title: {
-      th: 'เอพี ไทยแลนด์ ตอกย้ำองค์กรแห่งการเรียนรู้ เสริมทัพพลัส AI มุ่งส่งมอบ LIVING QUALITY',
-      en: 'AP Thailand reinforces learning organization, boosting AI integration to deliver LIVING QUALITY'
+      th: 'เอพี ไทยแลนด์ เสริมทัพพลัส AI มุ่งส่งมอบ LIVING QUALITY',
+      en: 'AP Thailand AI integration to deliver LIVING QUALITY'
     },
     snippet: {
       th: 'เอพี ไทยแลนด์ เดินหน้าตอกย้ำองค์กรแห่งการเรียนรู้ เสริมทัพพลัส AI เพื่อยกระดับคุณภาพชีวิตและเพิ่มประสิทธิภาพการบริการลูกค้า...',
@@ -664,8 +580,8 @@ const lifeVerseArticles = [
   {
     id: 2,
     title: {
-      th: 'รู้จักช่วง “Honeymoon Period” ของคอนโด ทำไมคอนโดที่ดีเวลอปเปอร์ยังขายไม่หมด ถึงเป็นช่วงเวลาที่น่าอยู่ที่สุด',
-      en: 'Understanding the "Honeymoon Period" of condos: Why a partially sold condo is actually the most pleasant time to live'
+      th: 'รู้จักช่วง “Honeymoon Period” ของคอนโด',
+      en: 'Understanding the "Honeymoon Period" of condos'
     },
     snippet: {
       th: 'เปิดมุมมองที่น่าสนใจของช่วงที่โครงการเพิ่งสร้างเสร็จและมีผู้อยู่อาศัยยังไม่เต็มพื้นที่ ความเงียบสงบและการบริการดูแลที่ดีที่สุด...',
@@ -718,8 +634,8 @@ const guideVerseArticles = [
   {
     id: 1,
     title: {
-      th: 'บริษัท แอสเซทไวส์ จำกัด (มหาชน) หรือ ASW จัดพิธีลงเสาเอกโครงการ Kave Carnival รังสิต นำโดย นางสาวกมล คุณารักษ์กุล กรรมการผู้จัดการกลุ่ม',
-      en: 'Assetwise Public Company Limited (ASW) holds the piling ceremony for the Kave Carnival Rangsit project, led by Ms. Kamon Kunarukskul, Group Managing Director.'
+      th: 'บริษัท แอสเซทไวส์ จำกัด (มหาชน) หรือ ASW จัดพิธีลงเสาเอกโครงการ Kave Carnival รังสิต',
+      en: 'Assetwise Public Company Limited (ASW) holds the piling ceremony for the Kave Carnival Rangsit project.'
     },
     snippet: {
       th: 'จัดพิธีลงเสาเอกโครงการคอนโดมิเนียมใหม่ล่าสุด เจาะกลุ่มนักศึกษามหาวิทยาลัยธรรมศาสตร์ รังสิต ยกระดับการอยู่อาศัยของคนรุ่นใหม่...',
@@ -735,14 +651,14 @@ const guideVerseArticles = [
   {
     id: 2,
     title: {
-      th: 'ยิปซัมตราช้าง เดินหน้ายกระดับมาตรฐานวัสดุก่อสร้างไทย คว้าการรับรองมาตรฐานผลิตภัณฑ์อุตสาหกรรม (มอก.) 863-2567 สำหรับ "โครงคร่าวฝ้า-ผนัง"',
-      en: 'Elephant Gypsum advances Thai construction material standards, securing TIS 863-2567 certification for its ceiling and wall metal framing.'
+      th: 'ยิปซัมตราช้าง คว้าการรับรองมาตรฐานผลิตภัณฑ์อุตสาหกรรม สำหรับ "โครงคร่าวฝ้า-ผนัง"',
+      en: 'Elephant Gypsum TIS 863-2567 certification for its ceiling and wall metal framing.'
     },
     snippet: {
       th: 'ยื่นใบรับรองยกระดับคุณภาพการก่อสร้างภายในอาคารด้วยโครงคร่าวเหล็กชุบสังกะสีมาตรฐานใหม่ เพื่อความมั่นใจของเจ้าของบ้านและผู้รับเหมา...',
       en: 'Securing the new industrial product standard for ceiling-wall metal framing, bringing confidence to homeowners and contractors...'
     },
-    imageUrl: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?w=400&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&q=80',
     date: '20 May 2026',
     category: {
       th: 'ข่าวประชาสัมพันธ์',
@@ -752,8 +668,8 @@ const guideVerseArticles = [
   {
     id: 3,
     title: {
-      th: 'ตลาดอาคารสำนักงานยังอยู่ในสภาวะชีพจรสายล้น พลัส พร็อพเพอร์ตี้แนะผู้ประกอบการเร่งปรับรูปแบบอาคารให้สอดคล้องกับความต้องการของผู้เช่าในปัจจุบัน',
-      en: 'Office market remains in oversupply state: Plus Property advises developers to quickly adapt building features to match current tenant demands.'
+      th: 'พลัส พร็อพเพอร์ตี้แนะผู้ประกอบการเร่งปรับรูปแบบอาคารให้สอดคล้องกับความต้องการของผู้เช่าในปัจจุบัน',
+      en: 'Plus Property advises developers to quickly adapt building features to match current tenant demands.'
     },
     snippet: {
       th: 'แนะผู้ประกอบการอาคารสำนักงานและเจ้าของตึกเร่งรีโนเวทและยกระดับสิ่งอำนวยความสะดวก เพื่อตอบรับเทรนด์การทำงานรูปแบบไฮบริดและไลฟ์สไตล์ผู้เช่ายุคใหม่...',
@@ -798,7 +714,7 @@ const sponsorVideos: SponsorVideo[] = [
     id: 4,
     title: 'เซนโทร บางนา',
     videoUrl: 'https://www.youtube.com/watch?v=yJ4v-yxuPk8',
-    thumbnailUrl: 'https://images.unsplash.com/photo-1600607687931-cebf12f45cc3?w=400&q=80',
+    thumbnailUrl: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=400&q=80',
   },
   {
     id: 5,
@@ -1092,11 +1008,11 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#f2eae1] text-grayPalette-500 font-sans">
+    <div className="flex flex-col min-h-screen bg-[#fefaf5] text-grayPalette-500 font-sans">
       <div className="sticky top-0 z-50 w-full flex flex-col shadow-sm">
         
         {/* 1. TOP HEADER NAVIGATION */}
-        <div className="bg-white border-b border-gray-200 py-2 hidden md:block relative">
+        <div className="bg-[white] border-b border-gray-200 py-2 hidden md:block relative">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-xs">
           <div className="flex items-center space-x-6">
             <a href="#" className="flex items-center">
@@ -1310,7 +1226,7 @@ export default function HomePage() {
 
 
       {/* 3. HERO SLIDER BANNER */}
-      <section className="relative h-[480px] md:h-[620px] overflow-hidden bg-grayPalette-600 group">
+      <section className="relative h-[480px] md:h-[620px] overflow-hidden bg-[#fefaf5] group">
         {bannerSlides.map((slide, idx) => (
           <div
             key={slide.id}
@@ -1649,7 +1565,7 @@ export default function HomePage() {
       </section>
 
       {/* 4.5 HI - LIGHT PROPERTIES */}
-      <section className="py-16 w-full bg-[#f4f2ed] -mt-5" id="hilight-properties">
+      <section className="py-16 w-full bg-[#fefaf5] -mt-5" id="hilight-properties">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="flex flex-wrap justify-between items-center mb-8 gap-4">
             <div>
@@ -1755,7 +1671,7 @@ export default function HomePage() {
       </section>
 
       {/* 4.6 SPONSORER POSITION VDO SECTION (PROP CHANNEL) */}
-      <section className="py-12 w-full bg-[#f2eae1] border-t border-gray-100" id="prop-channel">
+      <section className="py-2 w-full bg-[#fefaf5]" id="prop-channel">
         <div className="max-w-7xl mx-auto px-4 w-full">
           {/* Header Title matching Ref Image */}
           <div className="mb-4">
@@ -1827,7 +1743,7 @@ export default function HomePage() {
       </section>
 
       {/* 4.7 THUMBNAIL SLIDESHOW WIDGET */}
-      <section className="py-12 w-full bg-[#f4f2ed] border-y border-gray-100" id="spotlight-properties">
+      <section className="py-12 w-full bg-[#fefaf5]" id="spotlight-properties">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="flex justify-between items-center mb-6">
             <div>
@@ -1954,7 +1870,7 @@ export default function HomePage() {
       </section>
 
       {/* 5. RECOMMENDED PROJECTS */}
-      <section className="py-6 bg-[#f2eae1]" id="properties">
+      <section className="py-2 bg-[#fefaf5]" id="properties">
         <div className="max-w-7xl mx-auto px-4 w-full mb-10">
           <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight text-[#0c4a5e] mb-6 font-sans">
             {sectionTitleTranslations[language].recommendTitle}
@@ -2081,7 +1997,7 @@ export default function HomePage() {
 
       {/* 10 Random Recommended Projects Thumbnails */}
       <section>
-          <div className="py-12 mt-12 bg-[white] p-6 border border-gray-100">
+          <div className="py-2 bg-[#fefaf5] p-6 ">
             <div className="max-w-[1200px] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 justify-items-center">
               {recommendedRandomProperties.map((prop) => {
                 const displayPrice = prop.priceBuy > 0 ? prop.priceBuy : prop.priceRent;
@@ -2162,7 +2078,7 @@ export default function HomePage() {
       </section>
 
       {/* 7.8. GDN HORIZONTAL BANNER BARS */}
-      <section className="py-6 bg-gray-50/30">
+      <section className="py-6 bg-[#fefaf5]">
         <div className="max-w-7xl mx-auto px-4 w-full flex flex-col space-y-6">
           {/* Banner 1: Stayverse Advisory */}
           <a
@@ -2191,7 +2107,7 @@ export default function HomePage() {
       </section>
 
       {/* 8. LUXURY WHY CHOOSE US */}
-      <section className="py-16 bg-[#f8f7f2] text-[#c48952]">
+      <section className="py-16 bg-[#fefaf5] text-[#c48952]">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <h2 className="text-center font-bold text-2xl md:text-3xl uppercase tracking-wider text-[#104b59] mb-12 font-sans">
             {t.whyChooseUs}
@@ -2232,7 +2148,7 @@ export default function HomePage() {
       </section>
 
       {/* 8.5. HOW IT WORKS (INFOGRAPHIC) */}
-      <section className="py-8 bg-gray-50/50 border-t border-b border-gray-100">
+      <section className="py-8 bg-[#fefaf5] ">
         <div className="max-w-6xl mx-auto px-4 w-full">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {/* Buyer's Journey */}
@@ -2275,7 +2191,7 @@ export default function HomePage() {
       </section>
 
       {/* 8.8. LIFEVERSE SECTION */}
-      <section id="lifeverse" className="py-12 bg-white border-t border-b border-gray-100">
+      <section id="lifeverse" className="py-12 bg-[#fefaf5]">
         <div className="max-w-7xl mx-auto px-4 w-full">
           {/* Header */}
           <div className="mb-8">
@@ -2333,7 +2249,7 @@ export default function HomePage() {
                       </div>
                       <div className="flex-1 min-w-0 flex flex-col justify-between h-full">
                         <div>
-                          <div className="flex items-center justify-between mb-1">
+                          <div className="flex items-center justify-between mb-0.5">
                             <span className="text-[9px] font-extrabold tracking-wider uppercase text-tealPalette-300">
                               {article.category[language === 'th' ? 'th' : 'en'] || article.category['th']}
                             </span>
@@ -2346,7 +2262,7 @@ export default function HomePage() {
                             {article.snippet[language === 'th' ? 'th' : 'en'] || article.snippet['th']}
                           </p>
                         </div>
-                        <div className="flex items-center justify-between mt-1 text-[10px]">
+                        <div className="flex items-center justify-between text-[10px]">
                           <a href="#" className="text-orangePalette-200 hover:text-orangePalette-300 font-bold flex items-center space-x-0.5">
                             <span>{language === 'th' ? 'อ่านต่อ' : 'Read More'}</span>
                             <ArrowRight className="w-2.5 h-2.5" />
@@ -2443,7 +2359,7 @@ export default function HomePage() {
       </section>
 
       {/* 8.9. GUIDEVERSE SECTION */}
-      <section className="py-12 bg-gray-50/30 border-b border-gray-100" id="guideverse">
+      <section className="py-2 bg-[#fefaf5]" id="guideverse">
         <div className="max-w-7xl mx-auto px-4 w-full">
           {/* Header */}
           <div className="mb-8">
@@ -2670,7 +2586,7 @@ export default function HomePage() {
       </section>
 
       {/* 6. REAL ESTATE SMART CALCULATORS SECTION */}
-      <section className="py-16 bg-white border-y border-grayPalette-100" id="calculators">
+      <section className="py-16 bg-[#fefaf5]" id="calculators">
         <div className="max-w-7xl mx-auto px-4 w-full">
           <div className="text-center max-w-2xl mx-auto mb-12">
             <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight text-[#0c4a5e] font-sans">

@@ -326,7 +326,7 @@ export const mockProperties = [
     tag: 'HOT CONDOMINIUM FOR RENT',
     lifestyle: 'ใกล้มหาวิทยาลัย',
     roomType: 'studio',
-    imageUrl: 'https://images.unsplash.com/photo-1600607687931-cebf12f45cc3?w=800&q=80',
+    imageUrl: 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=800&q=80',
     virtualTour: false,
     brand: 'แอสเซทไวส์ (Asset Wise)',
     province: 'ปทุมธานี',

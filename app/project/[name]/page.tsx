@@ -241,7 +241,7 @@ export default function ProjectDetailPage() {
     'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80',
     'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80',
     'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80',
-    'https://images.unsplash.com/photo-1600607687931-cebf12f45cc3?w=800&q=80',
+    'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=800&q=80',
     'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80'
   ];
 
