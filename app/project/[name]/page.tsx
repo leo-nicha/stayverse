@@ -443,9 +443,10 @@ export default function ProjectDetailPage() {
           </div>
           
           <div className="flex items-center space-x-4 font-semibold text-gray-600">
-            <a href="/packages" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].listProp}</a>
             <a href="/subscription" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].sub}</a>
             <a href="/admin" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].myHome}</a>
+            <div className="h-3 w-[1px] bg-gray-300"></div>
+            <a href="/packages" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].listProp}</a>
             <div className="h-3 w-[1px] bg-gray-300"></div>
             <a href="/login" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].login}</a>
             <div className="h-3 w-[1px] bg-gray-300"></div>

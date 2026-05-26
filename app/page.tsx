@@ -1117,9 +1117,10 @@ export default function HomePage() {
           </div>
           
           <div className="flex items-center space-x-4 font-semibold text-gray-600">
-            <a href="/packages" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].listProp}</a>
             <a href="/subscription" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].sub}</a>
             <a href="/admin" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].myHome}</a>
+            <div className="h-3 w-[1px] bg-gray-300"></div>
+            <a href="/packages" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].listProp}</a>
             <div className="h-3 w-[1px] bg-gray-300"></div>
             <a href="/login" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].login}</a>
             <div className="h-3 w-[1px] bg-gray-300"></div>
@@ -2190,39 +2191,39 @@ export default function HomePage() {
       </section>
 
       {/* 8. LUXURY WHY CHOOSE US */}
-      <section className="py-16 bg-[#052b37] text-white">
+      <section className="py-16 bg-[#f8f7f2] text-[#c48952]">
         <div className="max-w-7xl mx-auto px-4 w-full">
-          <h2 className="text-center font-bold text-2xl md:text-3xl uppercase tracking-wider text-[#f5f1eb] mb-12 font-sans">
+          <h2 className="text-center font-bold text-2xl md:text-3xl uppercase tracking-wider text-[#104b59] mb-12 font-sans">
             {t.whyChooseUs}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white/5 border border-white/10 p-8 rounded-3xl text-center space-y-4">
+            <div className="bg-[#f3ece2] border border-white/10 p-8 rounded-3xl text-center space-y-4">
               <div className="w-12 h-12 bg-orangePalette-200/20 text-orangePalette-200 rounded-2xl flex items-center justify-center mx-auto">
                 <ShieldCheck className="w-6 h-6" />
               </div>
-              <h3 className="font-extrabold text-lg text-white">{whyChooseUsTranslations[language].t1}</h3>
-              <p className="text-sm text-grayPalette-100 font-light leading-relaxed">
+              <h3 className="font-extrabold text-lg text-[#3a6972]">{whyChooseUsTranslations[language].t1}</h3>
+              <p className="text-sm text-[#57524d] font-light leading-relaxed">
                 {whyChooseUsTranslations[language].d1}
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/10 p-8 rounded-3xl text-center space-y-4">
+            <div className="bg-[#f3ece2] border border-white/10 p-8 rounded-3xl text-center space-y-4">
               <div className="w-12 h-12 bg-tealPalette-100/20 text-tealPalette-100 rounded-2xl flex items-center justify-center mx-auto">
                 <Landmark className="w-6 h-6" />
               </div>
-              <h3 className="font-extrabold text-lg text-white">{whyChooseUsTranslations[language].t2}</h3>
-              <p className="text-sm text-grayPalette-100 font-light leading-relaxed">
+              <h3 className="font-extrabold text-lg text-[#3a6972]">{whyChooseUsTranslations[language].t2}</h3>
+              <p className="text-sm text-[#57524d] font-light leading-relaxed">
                 {whyChooseUsTranslations[language].d2}
               </p>
             </div>
 
-            <div className="bg-white/5 border border-white/10 p-8 rounded-3xl text-center space-y-4">
+            <div className="bg-[#f3ece2] border border-white/10 p-8 rounded-3xl text-center space-y-4">
               <div className="w-12 h-12 bg-orangePalette-200/20 text-orangePalette-200 rounded-2xl flex items-center justify-center mx-auto">
                 <Star className="w-6 h-6" />
               </div>
-              <h3 className="font-extrabold text-lg text-white">{whyChooseUsTranslations[language].t3}</h3>
-              <p className="text-sm text-grayPalette-100 font-light leading-relaxed">
+              <h3 className="font-extrabold text-lg text-[#3a6972]">{whyChooseUsTranslations[language].t3}</h3>
+              <p className="text-sm text-[#57524d] font-light leading-relaxed">
                 {whyChooseUsTranslations[language].d3}
               </p>
             </div>

@@ -41,6 +41,201 @@ const mainMenuTranslations: Record<Language, Record<string, string>> = {
   ko: { home: '홈', rentToOwn: '임대 후 구매', monthlyRent: '월세 임대', sellWithTenant: '세입자 안고 매매' }
 };
 
+const packageTranslations: Record<Language, any> = {
+  en: {
+    title: 'FIND YOUR PERFECT PLAN',
+    subtitle: 'SaaS + Transaction Commission',
+    starter: 'STARTER',
+    starterPrice: '฿2,900',
+    starterDesc: '/ month · Up to 10 active listings',
+    starterFeatures: [
+      'Basic listing & contract tools',
+      'Email support (48h response)',
+      'Monthly performance report',
+      'Standard contract templates'
+    ],
+    pro: 'PROFESSIONAL',
+    proPrice: '฿7,900',
+    proDesc: '/ month · Up to 50 active listings',
+    proFeatures: [
+      'Priority listing placement',
+      'API & system integration',
+      'Dedicated account manager',
+      'Real-time analytics dashboard'
+    ],
+    enterprise: 'ENTERPRISE',
+    enterprisePrice: '฿19,900',
+    enterpriseDesc: '/ month · Unlimited listings',
+    enterpriseFeatures: [
+      'White-label branding option',
+      'Custom contract structures',
+      '24/7 priority support hotline',
+      'Bulk management & API access'
+    ],
+    footerNote: '+1.5 - 5% Transaction Commission on every Rent-to-Own contract executed — paid by developer at contract signing'
+  },
+  th: {
+    title: 'ค้นหาแผนที่เหมาะสมกับคุณ',
+    subtitle: 'SaaS + ค่าคอมมิชชั่นจากธุรกรรม',
+    starter: 'เริ่มต้น',
+    starterPrice: '฿2,900',
+    starterDesc: '/ เดือน · ลงประกาศได้สูงสุด 10 รายการ',
+    starterFeatures: [
+      'เครื่องมือลงประกาศและสัญญาพื้นฐาน',
+      'สนับสนุนทางอีเมล (ตอบกลับใน 48 ชม.)',
+      'รายงานประสิทธิภาพรายเดือน',
+      'เทมเพลตสัญญามาตรฐาน'
+    ],
+    pro: 'มืออาชีพ',
+    proPrice: '฿7,900',
+    proDesc: '/ เดือน · ลงประกาศได้สูงสุด 50 รายการ',
+    proFeatures: [
+      'จัดอันดับประกาศพิเศษ',
+      'การเชื่อมต่อ API และระบบ',
+      'ผู้จัดการบัญชีส่วนตัว',
+      'แดชบอร์ดการวิเคราะห์แบบเรียลไทม์'
+    ],
+    enterprise: 'องค์กร',
+    enterprisePrice: '฿19,900',
+    enterpriseDesc: '/ เดือน · ลงประกาศไม่จำกัด',
+    enterpriseFeatures: [
+      'ตัวเลือกการสร้างแบรนด์ White-label',
+      'โครงสร้างสัญญาที่ปรับแต่งได้',
+      'สายด่วนสนับสนุนพิเศษตลอด 24 ชม.',
+      'การจัดการจำนวนมากและการเข้าถึง API'
+    ],
+    footerNote: '+1.5 - 5% ค่าคอมมิชชั่นจากธุรกรรม สำหรับทุกสัญญา Rent-to-Own ที่ดำเนินการ — จ่ายโดยผู้พัฒนาเมื่อเซ็นสัญญา'
+  },
+  ru: {
+    title: 'НАЙДИТЕ СВОЙ ИДЕАЛЬНЫЙ ПЛАН',
+    subtitle: 'SaaS + Комиссия за транзакцию',
+    starter: 'СТАРТОВЫЙ',
+    starterPrice: '฿2,900',
+    starterDesc: '/ месяц · До 10 активных объявлений',
+    starterFeatures: [
+      'Базовые инструменты объявлений и контрактов',
+      'Поддержка по email (ответ за 48ч)',
+      'Ежемесячный отчет об эффективности',
+      'Стандартные шаблоны контрактов'
+    ],
+    pro: 'ПРОФЕССИОНАЛЬНЫЙ',
+    proPrice: '฿7,900',
+    proDesc: '/ месяц · До 50 активных объявлений',
+    proFeatures: [
+      'Приоритетное размещение объявлений',
+      'Интеграция API и систем',
+      'Персональный менеджер',
+      'Панель аналитики в реальном времени'
+    ],
+    enterprise: 'КОРПОРАТИВНЫЙ',
+    enterprisePrice: '฿19,900',
+    enterpriseDesc: '/ месяц · Неограниченное количество объявлений',
+    enterpriseFeatures: [
+      'Опция White-label брендинга',
+      'Индивидуальные структуры контрактов',
+      'Круглосуточная приоритетная поддержка',
+      'Массовое управление и доступ к API'
+    ],
+    footerNote: '+1.5 - 5% Комиссия за транзакцию с каждого заключенного контракта Rent-to-Own — оплачивается застройщиком при подписании'
+  },
+  zh: {
+    title: '寻找完美的计划',
+    subtitle: 'SaaS + 交易佣金',
+    starter: '入门版',
+    starterPrice: '฿2,900',
+    starterDesc: '/ 月 · 最多 10 个有效房源',
+    starterFeatures: [
+      '基本房源和合同工具',
+      '电子邮件支持（48小时回复）',
+      '每月绩效报告',
+      '标准合同模板'
+    ],
+    pro: '专业版',
+    proPrice: '฿7,900',
+    proDesc: '/ 月 · 最多 50 个有效房源',
+    proFeatures: [
+      '优先房源展示',
+      'API及系统集成',
+      '专属客户经理',
+      '实时数据分析面板'
+    ],
+    enterprise: '企业版',
+    enterprisePrice: '฿19,900',
+    enterpriseDesc: '/ 月 · 无限制房源',
+    enterpriseFeatures: [
+      '白标品牌选项',
+      '自定义合同结构',
+      '24/7 优先支持热线',
+      '批量管理及 API 访问'
+    ],
+    footerNote: '+1.5 - 5% 交易佣金（每笔签订的先租后买合同）— 由开发商在签订合同时支付'
+  },
+  ja: {
+    title: '最適なプランを見つける',
+    subtitle: 'SaaS + 取引手数料',
+    starter: 'スターター',
+    starterPrice: '฿2,900',
+    starterDesc: '/ 月 · 最大10件のアクティブなリスティング',
+    starterFeatures: [
+      '基本的なリスティングと契約ツール',
+      'メールサポート（48時間以内返信）',
+      '月間パフォーマンスレポート',
+      '標準的な契約テンプレート'
+    ],
+    pro: 'プロフェッショナル',
+    proPrice: '฿7,900',
+    proDesc: '/ 月 · 最大50件のアクティブなリスティング',
+    proFeatures: [
+      '優先的なリスティング配置',
+      'APIとシステムの統合',
+      '専任アカウントマネージャー',
+      'リアルタイム分析ダッシュボード'
+    ],
+    enterprise: 'エンタープライズ',
+    enterprisePrice: '฿19,900',
+    enterpriseDesc: '/ 月 · 無制限のリスティング',
+    enterpriseFeatures: [
+      'ホワイトラベルブランディングオプション',
+      'カスタム契約構造',
+      '24時間年中無休の優先サポートホットライン',
+      '一括管理とAPIアクセス'
+    ],
+    footerNote: '+1.5 - 5% 実行されたすべてのRent-to-Own契約に対する取引手数料 — 契約署名時に開発者が支払い'
+  },
+  ko: {
+    title: '완벽한 플랜 찾기',
+    subtitle: 'SaaS + 거래 수수료',
+    starter: '스타터',
+    starterPrice: '฿2,900',
+    starterDesc: '/ 월 · 최대 10개의 활성 리스팅',
+    starterFeatures: [
+      '기본 리스팅 및 계약 도구',
+      '이메일 지원(48시간 내 응답)',
+      '월간 실적 보고서',
+      '표준 계약 템플릿'
+    ],
+    pro: '프로페셔널',
+    proPrice: '฿7,900',
+    proDesc: '/ 월 · 최대 50개의 활성 리스팅',
+    proFeatures: [
+      '우선 리스팅 배치',
+      'API 및 시스템 통합',
+      '전담 계정 관리자',
+      '실시간 분석 대시보드'
+    ],
+    enterprise: '엔터프라이즈',
+    enterprisePrice: '฿19,900',
+    enterpriseDesc: '/ 월 · 무제한 리스팅',
+    enterpriseFeatures: [
+      '화이트 레이블 브랜딩 옵션',
+      '맞춤형 계약 구조',
+      '연중무휴 우선 지원 핫라인',
+      '대량 관리 및 API 액세스'
+    ],
+    footerNote: '+1.5 - 5% 실행된 모든 Rent-to-Own 계약에 대한 거래 수수료 — 계약 서명 시 개발자 지불'
+  }
+};
+
 export default function PackagesPage() {
   const { language, setLanguage, t } = useTranslation();
   const [langMenuOpen, setLangMenuOpen] = useState(false);
@@ -86,9 +281,11 @@ export default function PackagesPage() {
           </div>
           
           <div className="flex items-center space-x-4 font-semibold text-gray-600">
-            <a href="/packages" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].listProp}</a>
+
             <a href="/subscription" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].sub}</a>
             <a href="/admin" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].myHome}</a>
+            <div className="h-3 w-[1px] bg-gray-300"></div>
+            <a href="/packages" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].listProp}</a>
             <div className="h-3 w-[1px] bg-gray-300"></div>
             <a href="/login" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].login}</a>
             <div className="h-3 w-[1px] bg-gray-300"></div>
@@ -278,73 +475,64 @@ export default function PackagesPage() {
 
        <main className="flex-grow pt-16 pb-32 max-w-7xl mx-auto px-4 w-full">
          <div className="text-center mb-16 space-y-4">
-           <h1 className="text-4xl md:text-5xl font-extrabold text-[#0f4a56] tracking-tight">แพ็กเกจสำหรับผู้พัฒนา</h1>
-           <p className="text-lg text-gray-500 max-w-2xl mx-auto">แผนเรียบง่ายสำหรับผู้พัฒนาอสังหาฯ ไทยที่ลงประกาศบน StayVerse</p>
+           <h1 className="text-4xl md:text-5xl font-medium text-[#1a5561] tracking-wide uppercase">{packageTranslations[language].title}</h1>
+           <p className="text-lg text-gray-500">{packageTranslations[language].subtitle}</p>
          </div>
          
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
-           {/* STARTER CARD */}
-           <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col h-full transform hover:-translate-y-1 transition-all">
-             <div className="mb-6">
-               <h3 className="text-[#0f4a56] font-bold text-xs uppercase tracking-wider mb-4">STARTER</h3>
-               <div className="text-4xl font-extrabold text-[#0f4a56] mb-4">ฟรี</div>
-               <p className="text-gray-500 text-sm h-10">เหมาะกับผู้เริ่มต้นที่อยากทดลองลงประกาศ</p>
+         <div className="max-w-5xl mx-auto w-full">
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+             {/* STARTER CARD */}
+             <div className="bg-[#9bb4b6] px-8 py-10 flex flex-col items-center text-center">
+               <h3 className="text-white font-medium uppercase tracking-widest text-sm mb-4">{packageTranslations[language].starter}</h3>
+               <div className="text-5xl md:text-6xl text-[#1a5561] mb-4 tracking-tighter">{packageTranslations[language].starterPrice}</div>
+               <p className="text-white text-sm mb-6 font-light">{packageTranslations[language].starterDesc}</p>
+               <div className="w-full h-px bg-white/50 mb-6"></div>
+               <ul className="space-y-4 w-full text-left">
+                 {packageTranslations[language].starterFeatures.map((feat: string, i: number) => (
+                   <li key={i} className="flex items-start text-sm text-white font-light">
+                     <Check className="w-4 h-4 text-white mr-3 flex-shrink-0 mt-0.5" strokeWidth={2} /> 
+                     {feat}
+                   </li>
+                 ))}
+               </ul>
              </div>
              
-             <ul className="space-y-4 mb-8 flex-grow">
-               <li className="flex items-start text-sm text-gray-600"><Check className="w-4 h-4 text-gray-400 mr-2 flex-shrink-0 mt-0.5" /> ลงประกาศใช้งานสูงสุด 3 ยูนิต</li>
-               <li className="flex items-start text-sm text-gray-600"><Check className="w-4 h-4 text-gray-400 mr-2 flex-shrink-0 mt-0.5" /> การจัดวางประกาศมาตรฐาน</li>
-               <li className="flex items-start text-sm text-gray-600"><Check className="w-4 h-4 text-gray-400 mr-2 flex-shrink-0 mt-0.5" /> วิเคราะห์พื้นฐาน</li>
-               <li className="flex items-start text-sm text-gray-600"><Check className="w-4 h-4 text-gray-400 mr-2 flex-shrink-0 mt-0.5" /> รองรับทางอีเมล</li>
-               <li className="flex items-start text-sm text-gray-600"><Check className="w-4 h-4 text-gray-400 mr-2 flex-shrink-0 mt-0.5" /> คอมมิชชั่นแพลตฟอร์ม 8% ต่อการขาย</li>
-             </ul>
+             {/* PRO CARD */}
+             <div className="bg-[#9bb4b6] px-8 py-10 flex flex-col items-center text-center">
+               <h3 className="text-white font-medium uppercase tracking-widest text-sm mb-4">{packageTranslations[language].pro}</h3>
+               <div className="text-5xl md:text-6xl text-[#1a5561] mb-4 tracking-tighter">{packageTranslations[language].proPrice}</div>
+               <p className="text-white text-sm mb-6 font-light">{packageTranslations[language].proDesc}</p>
+               <div className="w-full h-px bg-white/50 mb-6"></div>
+               <ul className="space-y-4 w-full text-left">
+                 {packageTranslations[language].proFeatures.map((feat: string, i: number) => (
+                   <li key={i} className="flex items-start text-sm text-white font-light">
+                     <Check className="w-4 h-4 text-white mr-3 flex-shrink-0 mt-0.5" strokeWidth={2} /> 
+                     {feat}
+                   </li>
+                 ))}
+               </ul>
+             </div>
              
-             <button className="w-full py-3.5 bg-[#0f4a56] hover:bg-[#0a353d] text-white font-bold rounded-xl text-sm transition-colors mt-auto shadow-md">
-               เริ่มต้นใช้งาน
-             </button>
+             {/* ENTERPRISE CARD */}
+             <div className="bg-[#9bb4b6] px-8 py-10 flex flex-col items-center text-center">
+               <h3 className="text-white font-medium uppercase tracking-widest text-sm mb-4">{packageTranslations[language].enterprise}</h3>
+               <div className="text-5xl md:text-6xl text-[#1a5561] mb-4 tracking-tighter">{packageTranslations[language].enterprisePrice}</div>
+               <p className="text-white text-sm mb-6 font-light">{packageTranslations[language].enterpriseDesc}</p>
+               <div className="w-full h-px bg-white/50 mb-6"></div>
+               <ul className="space-y-4 w-full text-left">
+                 {packageTranslations[language].enterpriseFeatures.map((feat: string, i: number) => (
+                   <li key={i} className="flex items-start text-sm text-white font-light">
+                     <Check className="w-4 h-4 text-white mr-3 flex-shrink-0 mt-0.5" strokeWidth={2} /> 
+                     {feat}
+                   </li>
+                 ))}
+               </ul>
+             </div>
            </div>
-           
-           {/* PRO/RECOMMENDED CARD */}
-           <div className="bg-[#0f4a56] rounded-3xl p-8 shadow-2xl flex flex-col h-full transform scale-100 md:scale-105 z-10 relative">
-             <div className="mb-6">
-               <div className="text-4xl font-extrabold text-white mb-4 tracking-tight mt-6 md:mt-2">฿4,900 <span className="text-xl font-medium text-white/80">/ เดือน</span></div>
-               <p className="text-white/80 text-sm h-10">สำหรับผู้พัฒนารายย่อยถึงกลางที่มุ่งดิจิทัลเต็มตัว</p>
-             </div>
-             
-             <ul className="space-y-4 mb-8 flex-grow">
-               <li className="flex items-start text-sm text-white/95"><Check className="w-4 h-4 text-white/80 mr-2 flex-shrink-0 mt-0.5" /> ลงประกาศใช้งานสูงสุด 25 ยูนิต</li>
-               <li className="flex items-start text-sm text-white/95"><Check className="w-4 h-4 text-white/80 mr-2 flex-shrink-0 mt-0.5" /> การจัดวางประกาศระดับพรีเมียม</li>
-               <li className="flex items-start text-sm text-white/95"><Check className="w-4 h-4 text-white/80 mr-2 flex-shrink-0 mt-0.5" /> วิเคราะห์ขั้นสูง + ติดตามลีด</li>
-               <li className="flex items-start text-sm text-white/95"><Check className="w-4 h-4 text-white/80 mr-2 flex-shrink-0 mt-0.5" /> รองรับระดับพรีเมียม (ตอบใน 24 ชม.)</li>
-               <li className="flex items-start text-sm text-white/95"><Check className="w-4 h-4 text-white/80 mr-2 flex-shrink-0 mt-0.5" /> คอมมิชชั่นแพลตฟอร์ม 5% ต่อการขาย</li>
-               <li className="flex items-start text-sm text-white/95"><Check className="w-4 h-4 text-white/80 mr-2 flex-shrink-0 mt-0.5" /> สล็อตแนะนำพิเศษ (2 ต่อเดือน)</li>
-             </ul>
-             
-             <button className="w-full py-3.5 bg-[#f4f1eb] hover:bg-white text-[#0f4a56] font-bold rounded-xl text-sm transition-colors mt-auto shadow-lg shadow-black/20">
-               เริ่มต้นใช้งาน
-             </button>
-           </div>
-           
-           {/* ENTERPRISE CARD */}
-           <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 flex flex-col h-full transform hover:-translate-y-1 transition-all">
-             <div className="mb-6">
-               <h3 className="text-[#0f4a56] font-bold text-xs uppercase tracking-wider mb-4">ENTERPRISE</h3>
-               <div className="text-4xl font-extrabold text-[#0f4a56] mb-4">กำหนดเอง</div>
-               <p className="text-gray-500 text-sm h-10">สำหรับผู้พัฒนารายใหญ่ เจ้าของพอร์ตฯ และโครงการ RTO เต็มรูปแบบ</p>
-             </div>
-             
-             <ul className="space-y-4 mb-8 flex-grow">
-               <li className="flex items-start text-sm text-gray-600"><Check className="w-4 h-4 text-gray-400 mr-2 flex-shrink-0 mt-0.5" /> ลงประกาศไม่จำกัด</li>
-               <li className="flex items-start text-sm text-gray-600"><Check className="w-4 h-4 text-gray-400 mr-2 flex-shrink-0 mt-0.5" /> แบนเนอร์แนะนำบนหน้าแรก</li>
-               <li className="flex items-start text-sm text-gray-600"><Check className="w-4 h-4 text-gray-400 mr-2 flex-shrink-0 mt-0.5" /> ผู้จัดการบัญชีเฉพาะ</li>
-               <li className="flex items-start text-sm text-gray-600"><Check className="w-4 h-4 text-gray-400 mr-2 flex-shrink-0 mt-0.5" /> เชื่อมต่อกับระบบอื่น (CRM, ERP)</li>
-               <li className="flex items-start text-sm text-gray-600"><Check className="w-4 h-4 text-gray-400 mr-2 flex-shrink-0 mt-0.5" /> คอมมิชชั่นแพลตฟอร์ม 3% ต่อการขาย</li>
-               <li className="flex items-start text-sm text-gray-600"><Check className="w-4 h-4 text-gray-400 mr-2 flex-shrink-0 mt-0.5" /> โอกาสทำการตลาดร่วม</li>
-             </ul>
-             
-             <button className="w-full py-3.5 bg-[#0f4a56] hover:bg-[#0a353d] text-white font-bold rounded-xl text-sm transition-colors mt-auto shadow-md">
-               ติดต่อฝ่ายขาย
-             </button>
+
+           {/* FOOTER BANNER */}
+           <div className="mt-4 bg-[#1a5561] py-4 px-6 text-center text-white text-sm">
+             {packageTranslations[language].footerNote}
            </div>
          </div>
        </main>
