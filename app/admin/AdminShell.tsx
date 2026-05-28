@@ -293,6 +293,7 @@ export const adminTranslations = {
     set_product_fee: 'ค่าธรรมเนียมสินค้า',
     set_tag: 'แท็ก',
     set_document: 'ป้องกันและจัดเอกสาร',
+    set_html_page: 'ข้อบังคับและข้อตกลง',
     set_mail: 'Mail Template',
     set_meta: 'Meta Tag',
     version: 'เวอร์ชัน'
@@ -362,6 +363,7 @@ export const adminTranslations = {
     set_product_fee: 'Product Fees',
     set_tag: 'Tags',
     set_document: 'Document Protection',
+    set_html_page: 'Regulations and Agreements',
     set_mail: 'Mail Template',
     set_meta: 'Meta Tag',
     version: 'Version'
@@ -414,7 +416,6 @@ const menuStructure = [
   },
   { id: 'members', labelKey: 'members', icon: User, badge: null, hasSubmenu: false },
   { id: 'interested', labelKey: 'interested', icon: UserPlus, badge: { text: '3', color: 'bg-[#0088FF] text-white' }, hasSubmenu: false },
-  { id: 'coverImage', labelKey: 'coverImage', icon: ImageIcon, badge: null, hasSubmenu: false },
   { id: 'banner', labelKey: 'banner', icon: Tv, badge: null, hasSubmenu: false },
   { id: 'youtubeVideo', labelKey: 'youtubeVideo', icon: Video, badge: null, hasSubmenu: false },
   { id: 'articles', labelKey: 'articles', icon: BookOpen, badge: null, hasSubmenu: false },
@@ -454,6 +455,7 @@ const menuStructure = [
       { id: 'set_product_fee', labelKey: 'set_product_fee' },
       { id: 'set_tag', labelKey: 'set_tag' },
       { id: 'set_document', labelKey: 'set_document' },
+      { id: 'set_html_page', labelKey: 'set_html_page' },
       { id: 'set_mail', labelKey: 'set_mail' },
       { id: 'set_meta', labelKey: 'set_meta' }
     ]
@@ -636,6 +638,10 @@ export const AdminShell: React.FC<AdminShellProps> = ({
       router.push('/admin/banner');
     } else if (itemId === 'youtubeVideo') {
       router.push('/admin/video_list');
+    } else if (itemId === 'interested') {
+      router.push('/admin/interested');
+    } else if (itemId === 'activityLog') {
+      router.push('/admin/admin_log');
     } else if (['allListings', 'onlineListings', 'draftListings', 'offlineListings', 'rejectListings', 'soldRentListings', 'expireListings'].includes(itemId)) {
       const mapping: Record<string, string> = {
         allListings: '?action=reset',
