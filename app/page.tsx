@@ -4,13 +4,14 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation, Language } from '@/context/LanguageContext';
 import {
   Phone, Mail, Globe, Menu, X, ChevronDown, ChevronLeft, ChevronRight, Search, ArrowRight,
-  MapPin, BedDouble, Square, ShieldCheck, Heart, Percent, Calculator,
+  MapPin, BedDouble, Square, ShieldCheck, Shield, Heart, Percent, Calculator,
   TrendingUp, Landmark, Star, ExternalLink, HelpCircle, Share2
 } from 'lucide-react';
 import { locationData } from '@/utils/mockLocationData';
 import { mockProperties } from '@/utils/mockProperties';
 import { transitData } from '@/utils/transitData';
 import { motion, AnimatePresence } from 'framer-motion';
+import { footerTranslations } from '@/utils/footerTranslations';
 
 // Luxury Promotion Slides
 const bannerSlides = [
@@ -1034,7 +1035,6 @@ export default function HomePage() {
           
           <div className="flex items-center space-x-4 font-semibold text-gray-600">
             <a href="/#contact" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].sub}</a>
-            <a href="/admin" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].myHome}</a>
             <div className="h-3 w-[1px] bg-gray-300"></div>
             <a href="/packages" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].listProp}</a>
             <div className="h-3 w-[1px] bg-gray-300"></div>
@@ -3144,7 +3144,7 @@ export default function HomePage() {
       {/* 10. LUXURY FOOTER */}
       <footer className="bg-[#052b37] text-white pt-16 pb-8 border-t border-white/5">
         <div className="max-w-7xl mx-auto px-4 w-full grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-
+          
           {/* Col 1 */}
           <div className="space-y-4">
             <a href="/" className="flex items-center">
@@ -3154,58 +3154,74 @@ export default function HomePage() {
                 className="h-12 w-auto object-contain brightness-0 invert"
               />
             </a>
-            <p className="text-xs text-grayPalette-100 leading-relaxed">
-              {t.footerDesc}
+            <p className="text-xs text-grayPalette-100 leading-relaxed whitespace-pre-line">
+              {footerTranslations[language]?.platformDesc}
             </p>
-            <div className="flex items-center space-x-3 text-grayPalette-100">
-              <span className="p-2 bg-white/5 rounded-full hover:bg-orangePalette-200 transition-all cursor-pointer"><Star className="w-4 h-4 text-orangePalette-200" /></span>
-              <span className="p-2 bg-white/5 rounded-full hover:bg-orangePalette-200 transition-all cursor-pointer"><Heart className="w-4 h-4 text-orangePalette-200" /></span>
+            <p className="text-[11px] text-grayPalette-100 leading-relaxed pt-1">
+              {footerTranslations[language]?.verifiedBy}
+            </p>
+            <div className="pt-1">
+              <button className="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white rounded-md text-[11px] font-semibold flex items-center gap-2 border border-white/10 transition-all cursor-pointer">
+                <Shield className="w-3.5 h-3.5 text-blue-400" />
+                All ID Global
+              </button>
             </div>
           </div>
 
           {/* Col 2 */}
           <div className="space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-orangePalette-200">Quick Links</h4>
-            <div className="flex flex-col space-y-2 text-xs text-grayPalette-100">
-              <a href="#search-engine" className="hover:text-orangePalette-200 transition-all">Search Engine</a>
-              <a href="#properties" className="hover:text-orangePalette-200 transition-all">Premium Listings</a>
-              <a href="#calculators" className="hover:text-orangePalette-200 transition-all">Interactive Calculators</a>
-              <a href="#contact" className="hover:text-orangePalette-200 transition-all">Get in Touch</a>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-orangePalette-200">{footerTranslations[language]?.browse}</h4>
+            <div className="flex flex-col space-y-3 text-xs text-grayPalette-100 font-medium">
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.rentToOwn}</a>
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.justRent}</a>
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.investorsChoice}</a>
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.mapSearch}</a>
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.searchByDeveloper}</a>
             </div>
           </div>
 
           {/* Col 3 */}
           <div className="space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-orangePalette-200">Properties</h4>
-            <div className="flex flex-col space-y-2 text-xs text-grayPalette-100">
-              <a href="#properties" className="hover:text-orangePalette-200 transition-all">{t.condo}</a>
-              <a href="#properties" className="hover:text-orangePalette-200 transition-all">{t.house}</a>
-              <a href="#properties" className="hover:text-orangePalette-200 transition-all">{t.villa}</a>
-              <a href="#properties" className="hover:text-orangePalette-200 transition-all">{t.townhome}</a>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-orangePalette-200">{footerTranslations[language]?.forOwners}</h4>
+            <div className="flex flex-col space-y-3 text-xs text-grayPalette-100 font-medium">
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.listProperty}</a>
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.developerPortal}</a>
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.pricingPackages}</a>
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.livingServices}</a>
+              <a href="/affiliate" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.affiliateProgram}</a>
             </div>
           </div>
 
           {/* Col 4 */}
           <div className="space-y-4">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-orangePalette-200">Advisory Head Office</h4>
-            <div className="text-xs text-grayPalette-100 space-y-2">
-              <p>Stayverse Real Estate Co., Ltd.</p>
-              <p>Level 28, Exchange Tower, Sukhumvit Road,</p>
-              <p>Khlong Toei, Bangkok 10110, Thailand</p>
-              <p className="pt-2">Tel: +66 2 056 2333</p>
-              <p>Email: info@stayverse.com</p>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-orangePalette-200">{footerTranslations[language]?.company}</h4>
+            <div className="flex flex-col space-y-3 text-xs text-grayPalette-100 font-medium">
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.myHome}</a>
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.aboutStayVerse}</a>
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.contactUs}</a>
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.termsAndConditions}</a>
+              <a href="#" className="hover:text-orangePalette-200 transition-all">{footerTranslations[language]?.privacyPolicy}</a>
             </div>
           </div>
 
         </div>
 
+        {/* Affiliate Banner */}
+        <div className="max-w-7xl mx-auto px-4 w-full mb-12">
+          <div className="bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+            <div className="space-y-2">
+              <div className="text-[10px] font-bold tracking-widest uppercase text-gray-400">{footerTranslations[language]?.affBannerTitle}</div>
+              <h3 className="text-white font-bold text-base md:text-lg">{footerTranslations[language]?.affBannerHeadline}</h3>
+              <p className="text-[11px] text-gray-400">{footerTranslations[language]?.affBannerSub}</p>
+            </div>
+            <a href="/affiliate" className="shrink-0 px-5 py-2.5 bg-transparent border border-white/20 hover:border-white hover:bg-white/10 text-white rounded-lg text-xs font-semibold transition-all flex items-center gap-2 cursor-pointer">
+              {footerTranslations[language]?.applyAffiliate}
+            </a>
+          </div>
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 w-full pt-8 border-t border-white/5 flex flex-wrap justify-between items-center gap-4 text-xs text-grayPalette-200">
           <p>{t.rightsReserved}</p>
-          <div className="flex space-x-6">
-            <a href="#" className="hover:text-orangePalette-200 transition-all">Terms of Service</a>
-            <a href="#" className="hover:text-orangePalette-200 transition-all">{t.privacyPolicy}</a>
-            <a href="#" className="hover:text-orangePalette-200 transition-all">Sitemap</a>
-          </div>
         </div>
       </footer>
 
