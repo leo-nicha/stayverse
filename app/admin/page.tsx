@@ -14,6 +14,10 @@ import { AdminShell, Listing, generateMockListings, adminTranslations, languageF
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function AdminPage() {
+  return <DashboardContent role="admin" />;
+}
+
+export function DashboardContent({ role = 'admin' }: { role?: 'admin' | 'developer' | 'affiliate' | 'tenant' }) {
   const { language, setLanguage, isMounted } = useTranslation();
   
   // States
@@ -481,7 +485,7 @@ export default function AdminPage() {
   }
 
   return (
-    <AdminShell activeItem={activeItem} setActiveItem={setActiveItem}>
+    <AdminShell activeItem={activeItem} setActiveItem={setActiveItem} role={role}>
 
         {/* 3. MAIN DASHBOARD CONTENT AREA */}
         <main className="flex-1 min-w-0 overflow-y-auto p-4 md:p-6 lg:p-8 flex flex-col justify-between">

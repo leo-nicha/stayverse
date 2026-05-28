@@ -81,10 +81,15 @@ const mockInterested: InterestedItem[] = [
 ];
 
 export default function InterestedListPage() {
+  return <InterestedContent role="admin" />;
+}
+
+export function InterestedContent({ role = 'admin' }: { role?: 'admin' | 'developer' | 'affiliate' | 'tenant' }) {
   const router = useRouter();
+  const basePath = role === 'admin' ? '/admin' : `/${role}`;
 
   return (
-    <AdminShell activeItem="interested">
+    <AdminShell activeItem="interested" role={role}>
       <div className="bg-[#f8f9fc] min-h-screen pb-8">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-6 py-4 bg-white border-b border-gray-100">
@@ -92,7 +97,7 @@ export default function InterestedListPage() {
             ผู้สนใจ
           </h1>
           <div className="text-[13px] text-[#0088ff] mt-2 sm:mt-0 flex items-center space-x-2 select-none">
-            <span className="hover:underline cursor-pointer transition-colors" onClick={() => router.push('/admin')}>Home</span>
+            <span className="hover:underline cursor-pointer transition-colors" onClick={() => router.push(basePath)}>Home</span>
             <span className="text-gray-400">/</span>
             <span className="text-gray-500">ผู้สนใจ</span>
           </div>
@@ -218,7 +223,7 @@ export default function InterestedListPage() {
                       <td className="py-4 px-4 align-top text-center pt-8">
                         <div className="flex items-center justify-center gap-2 text-gray-500">
                           <button className="hover:text-gray-700 transition-colors" title="Folder"><FolderOpen className="w-4 h-4" /></button>
-                          <button onClick={() => router.push(`/admin/interested/edit?id=${item.id}`)} className="hover:text-amber-500 transition-colors" title="Edit"><Edit className="w-4 h-4" /></button>
+                          <button onClick={() => router.push(`${basePath}/interested/edit?id=${item.id}`)} className="hover:text-amber-500 transition-colors" title="Edit"><Edit className="w-4 h-4" /></button>
                           <button className="hover:text-red-500 transition-colors" title="Delete"><Trash2 className="w-4 h-4" /></button>
                         </div>
                       </td>

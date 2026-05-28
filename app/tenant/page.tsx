@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import AdminPage from '../admin/page';
+import { DashboardContent } from '../admin/page';
 
 export default function TenantPage() {
-  return <AdminPage />;
+  return <DashboardContent role="tenant" />;
 }

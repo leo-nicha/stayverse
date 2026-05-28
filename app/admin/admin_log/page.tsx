@@ -6,7 +6,12 @@ import { AdminShell } from '../AdminShell';
 import { Search, RefreshCcw } from 'lucide-react';
 
 export default function AdminLogPage() {
+  return <AdminLogContent role="admin" />;
+}
+
+export function AdminLogContent({ role = 'admin' }: { role?: 'admin' | 'developer' | 'affiliate' | 'tenant' }) {
   const router = useRouter();
+  const basePath = role === 'admin' ? '/admin' : `/${role}`;
 
   const mockLogs = [
     { id: 1, username: 'admin@stayverse.com', action: 'view page edit Html Page CookiesConsent || 5', date: '28 พ.ค. 2569 เวลา 14:19:35 น.' },
@@ -22,7 +27,7 @@ export default function AdminLogPage() {
   ];
 
   return (
-    <AdminShell activeItem="activityLog">
+    <AdminShell activeItem="activityLog" role={role}>
       <div className="bg-[#f8f9fc] min-h-screen pb-8">
         
         {/* Header */}
@@ -31,7 +36,7 @@ export default function AdminLogPage() {
             Activity log
           </h1>
           <div className="text-[13px] text-[#0088ff] mt-2 sm:mt-0 flex items-center space-x-2 select-none">
-            <span className="hover:underline cursor-pointer transition-colors" onClick={() => router.push('/admin')}>Home</span>
+            <span className="hover:underline cursor-pointer transition-colors" onClick={() => router.push(basePath)}>Home</span>
             <span className="text-gray-400">/</span>
             <span className="text-gray-500">Activity log</span>
           </div>

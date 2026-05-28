@@ -8,7 +8,7 @@ import {
   Award, Search, Info, Phone, Settings, Book, ShieldAlert, Activity, 
   LogOut, ChevronDown, ChevronLeft, ChevronRight, Copy, Check, ExternalLink, Menu, X, 
   Globe, Clock, HelpCircle, Share2, Download, RotateCcw, Eye, Trash2, CheckCircle, XCircle,
-  PlusCircle
+  PlusCircle, Building
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/navigation';
@@ -234,6 +234,7 @@ export const adminTranslations = {
     breadcrumbsOverview: 'ภาพรวม',
     menuTitle: 'MENU',
     overview: 'ภาพรวม',
+    my_properties: 'โครงการของฉัน',
     whatsNew: 'มีอะไรใหม่บ้าง ?',
     customize: 'ปรับแต่งเว็บ',
     listingInfo: 'ข้อมูลประกาศ',
@@ -249,6 +250,7 @@ export const adminTranslations = {
     certificates: 'ใบรับรองต่างๆ',
     jobBoard: 'ประกาศหา...',
     aboutUs: 'เกี่ยวกับเรา',
+    client: 'ผู้ซื้อ / ผู้เช่า',
     contactInfo: 'ข้อมูลการติดต่อ',
     systemSettings: 'ตั้งค่าระบบ',
     manual: 'คู่มือ',
@@ -304,6 +306,7 @@ export const adminTranslations = {
     breadcrumbsOverview: 'Overview',
     menuTitle: 'MENU',
     overview: 'Overview',
+    my_properties: 'Properties',
     whatsNew: "What's New?",
     customize: 'Website Customize',
     listingInfo: 'Listing Information',
@@ -396,6 +399,7 @@ export const languageNames: Record<Language, string> = {
 
 const menuStructure = [
   { id: 'overview', labelKey: 'overview', icon: LayoutDashboard, badge: null, hasSubmenu: false },
+  { id: 'my_properties', labelKey: 'my_properties', icon: Building, badge: null, hasSubmenu: false },
   { id: 'whatsNew', labelKey: 'whatsNew', icon: Megaphone, badge: { text: 'N', color: 'bg-red-500 text-white animate-pulse' }, hasSubmenu: false },
   { id: 'customize', labelKey: 'customize', icon: Pencil, badge: null, hasSubmenu: false },
   { 
@@ -416,6 +420,7 @@ const menuStructure = [
   },
   { id: 'members', labelKey: 'members', icon: User, badge: null, hasSubmenu: false },
   { id: 'interested', labelKey: 'interested', icon: UserPlus, badge: { text: '3', color: 'bg-[#0088FF] text-white' }, hasSubmenu: false },
+  { id: 'client', labelKey: 'client', icon: UserPlus, badge: { text: '3', color: 'bg-[#0088FF] text-white' }, hasSubmenu: false },
   { id: 'banner', labelKey: 'banner', icon: Tv, badge: null, hasSubmenu: false },
   { id: 'youtubeVideo', labelKey: 'youtubeVideo', icon: Video, badge: null, hasSubmenu: false },
   { id: 'articles', labelKey: 'articles', icon: BookOpen, badge: null, hasSubmenu: false },
@@ -574,12 +579,6 @@ const CollapsibleMenuItem: React.FC<CollapsibleMenuItemProps> = ({
         {Icon && <Icon className={`w-4 h-4 ${isSelected ? 'text-[#CF7536]' : 'text-gray-400'}`} />}
         <span>{label}</span>
       </div>
-      
-      {item.badge && (
-        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${item.badge.color}`}>
-          {item.badge.text}
-        </span>
-      )}
     </button>
   );
 };
@@ -588,17 +587,49 @@ interface AdminShellProps {
   activeItem: string;
   setActiveItem?: (id: string) => void;
   children: React.ReactNode;
+  role?: 'admin' | 'developer' | 'affiliate' | 'tenant';
 }
 
 export const AdminShell: React.FC<AdminShellProps> = ({
   activeItem,
   setActiveItem,
   children,
+  role = 'admin',
 }) => {
   const { language, setLanguage, isMounted } = useTranslation();
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const [listings, setListings] = useState<Listing[]>([]);
+
+  let filteredMenu = menuStructure;
+  if (role === 'tenant') {
+    const hiddenItems = [
+      'overview',
+      'whatsNew',
+      'customize',
+      'listingInfo',
+      'members',
+      'interested',
+      'banner',
+      'youtubeVideo',
+      'articles',
+      'promotions',
+      'newsletter',
+      'reviews',
+      'certificates',
+      'jobBoard',
+      'contactInfo',
+      'systemSettings',
+      'admin',
+      'manual',
+      'aboutUs',
+      'activityLog'
+    ];
+    filteredMenu = menuStructure.filter(item => !hiddenItems.includes(item.id));
+  } else {
+    // Hide 'client' for all non-tenant roles (e.g. admin)
+    filteredMenu = menuStructure.filter(item => item.id !== 'client');
+  }
   const router = useRouter();
 
   useEffect(() => {
@@ -628,20 +659,26 @@ export const AdminShell: React.FC<AdminShellProps> = ({
 
   const handleMenuClick = (itemId: string) => {
     setMobileSidebarOpen(false);
+    const basePath = role === 'admin' ? '/admin' : `/${role}`;
+    
     if (itemId === 'members') {
-      router.push('/admin/members/index');
+      router.push(`${basePath}/members/index`);
     } else if (itemId === 'whatsNew') {
-      router.push('/admin/releases');
+      router.push(`${basePath}/releases`);
     } else if (itemId === 'overview') {
-      router.push('/admin');
+      router.push(`${basePath}`);
+    } else if (itemId === 'my_properties') {
+      router.push(`${basePath}/my_properties`);
     } else if (itemId === 'banner') {
-      router.push('/admin/banner');
+      router.push(`${basePath}/banner`);
     } else if (itemId === 'youtubeVideo') {
-      router.push('/admin/video_list');
+      router.push(`${basePath}/video_list`);
     } else if (itemId === 'interested') {
-      router.push('/admin/interested');
+      router.push(`${basePath}/interested`);
+    } else if (itemId === 'client') {
+      router.push(`${basePath}/client`);
     } else if (itemId === 'activityLog') {
-      router.push('/admin/admin_log');
+      router.push(`${basePath}/admin_log`);
     } else if (['allListings', 'onlineListings', 'draftListings', 'offlineListings', 'rejectListings', 'soldRentListings', 'expireListings'].includes(itemId)) {
       const mapping: Record<string, string> = {
         allListings: '?action=reset',
@@ -652,16 +689,16 @@ export const AdminShell: React.FC<AdminShellProps> = ({
         soldRentListings: '?search_action=search&web_status=51',
         expireListings: '?search_action=search&web_status=9'
       };
-      router.push(`/admin/post_list${mapping[itemId]}`);
+      router.push(`${basePath}/post_list${mapping[itemId]}`);
     } else if (itemId.startsWith('set_')) {
-      router.push(`/admin/${itemId}`);
+      router.push(`${basePath}/${itemId}`);
     } else {
-      if (typeof window !== 'undefined' && window.location.pathname === '/admin') {
+      if (typeof window !== 'undefined' && window.location.pathname === basePath) {
         if (setActiveItem) {
           setActiveItem(itemId);
         }
       } else {
-        router.push(`/admin?activeItem=${itemId}`);
+        router.push(`${basePath}?activeItem=${itemId}`);
       }
     }
   };
@@ -796,7 +833,7 @@ export const AdminShell: React.FC<AdminShellProps> = ({
                 
                 <div className="flex-1 overflow-y-auto px-3 py-4 space-y-1">
                   <span className="px-4 text-[10px] font-bold text-gray-400 tracking-wider block mb-2">{tAdmin.menuTitle}</span>
-                  {menuStructure.map((item) => (
+                  {filteredMenu.map((item) => (
                     <CollapsibleMenuItem
                       key={item.id}
                       item={item}
@@ -825,7 +862,7 @@ export const AdminShell: React.FC<AdminShellProps> = ({
         <aside className="w-[260px] bg-white border-r border-gray-200/80 hidden md:flex flex-col shrink-0">
           <div className="flex-1 overflow-y-auto px-3.5 py-5 space-y-1 select-none">
             <span className="px-4 text-[10px] font-extrabold text-gray-400 tracking-widest block mb-2">{tAdmin.menuTitle}</span>
-            {menuStructure.map((item) => (
+            {filteredMenu.map((item) => (
               <CollapsibleMenuItem
                 key={item.id}
                 item={item}
