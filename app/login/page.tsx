@@ -210,7 +210,7 @@ export default function LoginPage() {
         } else if (userEmail.startsWith('affiliate')) {
           router.push('/affiliate');
         } else if (userEmail.startsWith('tenant')) {
-          router.push('/tenant');
+          router.push('/tenant/my_properties');
         } else {
           router.push('/admin');
         }

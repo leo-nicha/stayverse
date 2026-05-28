@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Stayverse | Luxury Real Estate & Condominiums in Bangkok',
   description: 'Discover premium properties, luxury condominiums, houses, and land in Bangkok near BTS and MRT lines with Stayverse, your trusted urban real estate partner.',
   keywords: 'condo bangkok, luxury property bangkok, bts condo, mrt condo, buy condo bangkok, rent condo bangkok, stayverse, real estate agency thailand',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({

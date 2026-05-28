@@ -105,12 +105,12 @@ const languageNames: Record<Language, string> = {
 };
 
 const topHeaderTranslations: Record<Language, Record<string, string>> = {
-  th: { search: 'ค้นหา...', listProp: 'ลงประกาศ', sub: 'สมัครสมาชิก', myHome: 'หน้าหลัก', login: 'เข้าสู่ระบบ' },
-  en: { search: 'Search...', listProp: 'List Property', sub: 'Subscription', myHome: 'My Home', login: 'Log in' },
-  ru: { search: 'Поиск...', listProp: 'Добавить объект', sub: 'Подписка', myHome: 'Мой профиль', login: 'Войти' },
-  zh: { search: '搜索...', listProp: '发布房源', sub: '订阅服务', myHome: '我的主页', login: '登录' },
-  ja: { search: '検索...', listProp: '物件を掲載', sub: 'サブスクリプション', myHome: 'マイホーム', login: 'ログイン' },
-  ko: { search: '검색...', listProp: '매물 등록', sub: '구독', myHome: '마이 홈', login: '로그인' }
+  th: { search: 'ค้นหา...', listProp: 'ลงประกาศ', sub: 'สนใจซื้อ/เช่า', myHome: 'หน้าหลัก', login: 'เข้าสู่ระบบ' },
+  en: { search: 'Search...', listProp: 'List Property', sub: 'Buying/Renting', myHome: 'My Home', login: 'Log in' },
+  ru: { search: 'Поиск...', listProp: 'Добавить объект', sub: 'Покупка/Аренда', myHome: 'Мой профиль', login: 'Войти' },
+  zh: { search: '搜索...', listProp: '发布房源', sub: '购买/租赁', myHome: '我的主页', login: '登录' },
+  ja: { search: '検索...', listProp: '物件を掲載', sub: '購入/賃貸', myHome: 'マイホーム', login: 'ログイン' },
+  ko: { search: '검색...', listProp: '매물 등록', sub: '구매/임대', myHome: '마이 홈', login: '로그인' }
 };
 
 const mainMenuTranslations: Record<Language, Record<string, string>> = {
@@ -1033,7 +1033,7 @@ export default function HomePage() {
           </div>
           
           <div className="flex items-center space-x-4 font-semibold text-gray-600">
-            <a href="/subscription" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].sub}</a>
+            <a href="/#contact" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].sub}</a>
             <a href="/admin" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].myHome}</a>
             <div className="h-3 w-[1px] bg-gray-300"></div>
             <a href="/packages" className="hover:text-orangePalette-200 transition-colors">{topHeaderTranslations[language].listProp}</a>
@@ -1089,7 +1089,7 @@ export default function HomePage() {
 
       {/* 2. MAIN HEADER NAVIGATION (Transparent Glass) */}
       <header className="bg-[#f4f1eb] backdrop-blur-md border-b border-white/5 transition-all py-4">
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center relative">
           {/* Logo */}
           <a href="#" className="flex md:hidden items-center">
             <img
@@ -1100,7 +1100,7 @@ export default function HomePage() {
           </a>
 
           {/* Desktop Navigation Menu */}
-          <nav className="hidden lg:flex items-center space-x-8 text-sm">
+          <nav className="hidden lg:flex items-center space-x-8 text-sm lg:absolute lg:left-1/2 lg:-translate-x-1/2">
             <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">{mainMenuTranslations[language].home}</a>
             <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">{mainMenuTranslations[language].rentToOwn}</a>
             <a href="#" className="text-[#306473] hover:text-orangePalette-200 hover:border-b-2 hover:border-orangePalette-200 pb-1 font-medium transition-all-custom">{mainMenuTranslations[language].monthlyRent}</a>
@@ -1135,9 +1135,6 @@ export default function HomePage() {
             {/* Login is only visible on mobile main header since it's in top bar for tablet/desktop */}
             <a href="/login" className="md:hidden text-[#306473] hover:text-orangePalette-200 font-bold text-xs uppercase transition-all-custom px-3 py-2 border border-[#306473]/25 hover:border-orangePalette-200 rounded-full">
               {language === 'th' ? 'เข้าสู่ระบบ' : 'Login'}
-            </a>
-            <a href="#contact" className="bg-white hover:bg-orangePalette-100 text-bluePalette-600 px-4 py-2 rounded-full text-xs font-bold uppercase transition-all-custom">
-              {t.sendEnquiry}
             </a>
 
             {/* Mobile menu toggle */}

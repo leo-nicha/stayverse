@@ -27,7 +27,7 @@ const mockClients = [
     email: 'ok.thaiprop@outlook.com',
     createdAt: '2024-12-11 14:46:24',
     updatedAt: '-',
-    status: 'Wait activate',
+    status: 'ON',
   },
   {
     id: '3',
@@ -175,7 +175,7 @@ export default function TenantClientPage() {
                     <td className="py-4 px-4 text-center">
                       <div className="flex items-center justify-center">
                         <div className="relative group flex flex-col items-center">
-                          <button className="text-gray-400 hover:text-[#CF7536] transition-colors cursor-pointer p-1">
+                          <button onClick={() => router.push(`/tenant/client/${client.id}`)} className="text-gray-400 hover:text-[#CF7536] transition-colors cursor-pointer p-1">
                             <Eye className="w-[18px] h-[18px]" />
                           </button>
                           <div className="absolute bottom-full mb-1 hidden group-hover:block px-2 py-1 bg-gray-800 text-white text-[10px] font-medium rounded whitespace-nowrap shadow-sm z-10 pointer-events-none">
