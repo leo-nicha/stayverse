@@ -17,7 +17,9 @@ export default function AdminPage() {
   return <DashboardContent role="admin" />;
 }
 
-export function DashboardContent({ role = 'admin' }: { role?: 'admin' | 'developer' | 'affiliate' | 'tenant' }) {
+AdminPage.DashboardContent = DashboardContent;
+
+function DashboardContent({ role = 'admin' }: { role?: 'admin' | 'developer' | 'affiliate' | 'tenant' }) {
   const { language, setLanguage, isMounted } = useTranslation();
   
   // States
