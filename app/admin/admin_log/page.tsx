@@ -9,7 +9,7 @@ export default function AdminLogPage() {
   return <AdminLogContent role="admin" />;
 }
 
-export function AdminLogContent({ role = 'admin' }: { role?: 'admin' | 'developer' | 'affiliate' | 'tenant' }) {
+function AdminLogContent({ role = 'admin' }: { role?: 'admin' | 'developer' | 'affiliate' | 'tenant' }) {
   const router = useRouter();
   const basePath = role === 'admin' ? '/admin' : `/${role}`;
 
