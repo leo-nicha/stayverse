@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { AdminShell } from '../../../admin/AdminShell';
 import { Calendar } from 'lucide-react';
 
-export default function TenantClientDetailPage({ params }: { params: { id: string } }) {
+export default function TenantClientDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   
   // State for the form
