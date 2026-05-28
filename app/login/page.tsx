@@ -201,11 +201,21 @@ export default function LoginPage() {
     setSuccess(t.successMsg);
     if (typeof window !== 'undefined') {
       localStorage.setItem('stayverse_logged_in', 'true');
-      localStorage.setItem('stayverse_user_email', email || 'admin@stayverse.com');
+      const userEmail = email.toLowerCase() || 'admin@stayverse.com';
+      localStorage.setItem('stayverse_user_email', userEmail);
+      
+      setTimeout(() => {
+        if (userEmail.startsWith('developer')) {
+          router.push('/developer');
+        } else if (userEmail.startsWith('affiliate')) {
+          router.push('/affiliate');
+        } else if (userEmail.startsWith('tenant')) {
+          router.push('/tenant');
+        } else {
+          router.push('/admin');
+        }
+      }, 1000);
     }
-    setTimeout(() => {
-      router.push('/admin');
-    }, 1000);
   };
 
   return (
@@ -503,20 +513,38 @@ export default function LoginPage() {
               </div>
             </div>
 
-            {/* Mock Admin Help Block */}
-            <div className="mt-4 p-4 bg-gray-50 border border-gray-150 rounded-2xl space-y-2">
+            {/* Mock Accounts Help Block */}
+            <div className="mt-4 p-4 bg-gray-50 border border-gray-150 rounded-2xl space-y-3">
               <p className="text-[10px] text-gray-500 font-light leading-normal">{t.mockAdminNote}</p>
-              <div className="flex items-center justify-between text-[11px] font-mono select-all">
-                <div className="text-gray-600">
-                  Email: <span className="text-[#CF7536]">admin@stayverse.com</span> <br />
-                  Pass: <span className="text-[#CF7536]">admin1234</span>
-                </div>
+              
+              <div className="grid grid-cols-2 gap-2">
                 <button 
-                  onClick={handleFillMockAdmin}
-                  type="button"
-                  className="bg-[#CF7536]/10 hover:bg-[#CF7536]/25 text-[#CF7536] px-2.5 py-1 rounded text-[10px] font-bold font-sans cursor-pointer transition-all select-none"
+                  onClick={() => {setEmail('admin@stayverse.com'); setPassword('admin1234');}} 
+                  type="button" 
+                  className="bg-[#CF7536]/10 hover:bg-[#CF7536]/25 text-[#CF7536] px-2.5 py-1.5 rounded text-[11px] font-bold font-sans cursor-pointer transition-all select-none flex items-center justify-center"
                 >
-                  {t.useMockAdmin}
+                  Admin Role
+                </button>
+                <button 
+                  onClick={() => {setEmail('developer@stayverse.com'); setPassword('dev1234');}} 
+                  type="button" 
+                  className="bg-blue-50 hover:bg-blue-100 text-blue-600 px-2.5 py-1.5 rounded text-[11px] font-bold font-sans cursor-pointer transition-all select-none flex items-center justify-center"
+                >
+                  Developer Role
+                </button>
+                <button 
+                  onClick={() => {setEmail('affiliate@stayverse.com'); setPassword('aff1234');}} 
+                  type="button" 
+                  className="bg-green-50 hover:bg-green-100 text-green-600 px-2.5 py-1.5 rounded text-[11px] font-bold font-sans cursor-pointer transition-all select-none flex items-center justify-center"
+                >
+                  Affiliate Role
+                </button>
+                <button 
+                  onClick={() => {setEmail('tenant@stayverse.com'); setPassword('ten1234');}} 
+                  type="button" 
+                  className="bg-purple-50 hover:bg-purple-100 text-purple-600 px-2.5 py-1.5 rounded text-[11px] font-bold font-sans cursor-pointer transition-all select-none flex items-center justify-center"
+                >
+                  Tenant Role
                 </button>
               </div>
             </div>
