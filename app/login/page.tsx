@@ -267,7 +267,7 @@ export default function LoginPage() {
             <img 
               src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1000&q=80" 
               alt="Luxury Building" 
-              className="w-full h-full object-cover opacity-85 transform scale-105"
+              className="w-full h-full object-cover opacity-85 transform scale-105 mt-2"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white"></div>
@@ -280,7 +280,7 @@ export default function LoginPage() {
             <img
               src="https://res.cloudinary.com/dvv3wvgnt/image/upload/v1779681125/svlogo_tzfhad.webp"
               alt="STAYVERSE Logo"
-              className="h-12 w-auto object-contain"
+              className="h-15 w-auto object-contain pb-2"
             />
           </a>
             

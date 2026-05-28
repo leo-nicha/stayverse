@@ -632,6 +632,10 @@ export const AdminShell: React.FC<AdminShellProps> = ({
       router.push('/admin/releases');
     } else if (itemId === 'overview') {
       router.push('/admin');
+    } else if (itemId === 'banner') {
+      router.push('/admin/banner');
+    } else if (itemId === 'youtubeVideo') {
+      router.push('/admin/video_list');
     } else if (['allListings', 'onlineListings', 'draftListings', 'offlineListings', 'rejectListings', 'soldRentListings', 'expireListings'].includes(itemId)) {
       const mapping: Record<string, string> = {
         allListings: '?action=reset',
@@ -678,14 +682,13 @@ export const AdminShell: React.FC<AdminShellProps> = ({
             <Menu className="w-5 h-5" />
           </button>
           
-          <a href="/admin" className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#CF7536] to-[#A15A28] flex items-center justify-center text-white font-extrabold text-sm shadow-md">
-              SV
-            </div>
-            <span className="font-extrabold text-xl tracking-tight text-gray-800 hidden sm:inline-block">
-              STAY<span className="text-[#CF7536]">VERSE</span>
-            </span>
-          </a>
+<a href="#" className="flex items-center">
+              <img
+                src="https://res.cloudinary.com/dvv3wvgnt/image/upload/v1779681125/svlogo_tzfhad.webp"
+                alt="STAYVERSE Logo"
+                className="h-12 w-auto object-contain"
+              />
+            </a>
           
           <div className="h-4 w-[1px] bg-gray-300 hidden md:block"></div>
           

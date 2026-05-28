@@ -437,7 +437,7 @@ function PostListContent() {
                         <div className="flex items-center justify-center gap-2 text-gray-400">
                           <button className="hover:text-blue-500 transition-colors" title="View"><Eye className="w-4 h-4" /></button>
                           <button className="hover:text-gray-600 transition-colors" title="Manage images"><ImageIcon className="w-4 h-4" /></button>
-                          <button className="hover:text-amber-500 transition-colors" title="Edit"><Edit className="w-4 h-4" /></button>
+                          <button onClick={() => router.push(`/admin/post_list/edit?id=${l.id}`)} className="hover:text-amber-500 transition-colors" title="Edit"><Edit className="w-4 h-4" /></button>
                           <button className="hover:text-red-500 transition-colors" title="Delete"><Trash2 className="w-4 h-4" /></button>
                         </div>
                       </td>

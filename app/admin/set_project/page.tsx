@@ -427,7 +427,7 @@ export default function SetProjectPage() {
                             <FolderOpen className="w-3.5 h-3.5" />
                           </button>
                           <button
-                            onClick={() => router.push(`/admin/set_project/new?id=${p.id}`)}
+                            onClick={() => router.push(`/admin/set_project/edit?id=${p.id}`)}
                             title="Edit"
                             className="p-1.5 text-[#5B21B6] hover:bg-violet-50 rounded transition-colors cursor-pointer"
                           >
